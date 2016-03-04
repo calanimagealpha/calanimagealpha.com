@@ -5,7 +5,7 @@
 
 body {
     font-family: "Cyntho Pro Regular";
-    background-color: #353436;
+    background-color: #191919;
     color: #1E1E1E;
     margin: 0;
 }
@@ -269,6 +269,7 @@ table.department {
 
 .officer p {
     padding: 0;
+    font-size: 1.25em;
 }
 /**** Officers ****/
 
