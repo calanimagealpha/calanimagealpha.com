@@ -40,6 +40,12 @@
                 <p>
                     <select id="konshuu_selection">
                         <option value="default">Select an edition...</option>
+
+			<option value="43/3.pdf">Volume 43 Issue 3</option>
+
+			<option value="43/2.pdf">Volume 43 Issue 2</option>
+
+			<option value="43/1.pdf">Volume 43 Issue 1</option>
                     
                         <option value="42/13.pdf">Volume 42 Issue 13</option>
                     
@@ -66,26 +72,6 @@
                         <option value="42/2.pdf">Volume 42 Issue 2</option>
                     
                         <option value="42/1.pdf">Volume 42 Issue 1</option>
-                    
-                        <option value="41/12.pdf">Volume 41 Issue 12</option>
-                    
-                        <option value="41/11.pdf">Volume 41 Issue 11</option>
-                    
-                        <option value="41/10.pdf">Volume 41 Issue 10</option>
-                    
-                        <option value="41/9.pdf">Volume 41 Issue 9</option>
-                    
-                        <option value="41/8.pdf">Volume 41 Issue 8</option>
-                    
-                        <option value="41/7.pdf">Volume 41 Issue 7</option>
-                    
-                        <option value="41/6.pdf">Volume 41 Issue 6</option>
-                    
-                        <option value="41/5.pdf">Volume 41 Issue 5</option>
-                    
-                        <option value="41/4.pdf">Volume 41 Issue 4</option>
-                    
-                        <option value="41/3.pdf">Volume 41 Issue 3</option>
                     
                     </select>
 
@@ -143,11 +129,18 @@
                     {
                         var pageNumber = 1;
                         var file = document.getElementById("konshuu_selection").value;
+                        var filename = ""
 
                         if(file == "default")
                             return;
 
-                        PDFJS.getDocument('http://calanimagealpha.com/konshuu/' + file).then(function(pdf) {
+                        if (file[0] == "h") {
+                            filename = file
+                        } else { 
+                            filename = 'http://calanimagealpha.com/konshuu/' + file
+                        }
+
+                        PDFJS.getDocument(filename).then(function(pdf) {
                             renderPage(pdf, 1);
                             konshuu_canvas.style.display = "block";
                             konshuu_progress.style.display = "none";
