@@ -89,11 +89,11 @@
 
                     Use the left and right arrow keys to change pages.
                 </p>
-                <p><img id="konshuu_progress" style="display: none;" src="http://calanimagealpha.com/images/progress.gif"></p>
+                <p><img id="konshuu_progress" style="display: none;" src="https://calanimagealpha.com/images/progress.gif"></p>
                 <canvas id="konshuu_reader" style="display: none; width: 100%; border:1px solid black;"></canvas>
-                <script type="text/javascript" src="http://calanimagealpha.com/pdfjs/build/pdf.js"></script>
+                <script type="text/javascript" src="https://calanimagealpha.com/pdfjs/build/pdf.js"></script>
                 <script type="text/javascript">
-                    PDFJS.workerSrc = 'http://calanimagealpha.com/pdfjs/build/pdf.worker.js';
+                    PDFJS.workerSrc = 'https://calanimagealpha.com/pdfjs/build/pdf.worker.js';
                     var konshuu_canvas = document.getElementById("konshuu_reader");
                     konshuu_canvas.textBaseline = "top";
                     var konshuu_progress = document.getElementById("konshuu_progress");
@@ -148,8 +148,8 @@
 
                         if (file[0] == "h") {
                             filename = file
-                        } else {
-                            filename = 'http://calanimagealpha.com/konshuu/' + file
+                        } else { 
+                            filename = 'https://calanimagealpha.com/konshuu/' + file
                         }
 
                         PDFJS.getDocument(filename).then(function(pdf) {
