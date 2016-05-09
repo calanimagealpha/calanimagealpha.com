@@ -48,7 +48,7 @@ function renderPage(pdf, page_number) {
         var text_string = "Page " + page_number + " of " + pdf.numPages;
         var text_width = ctx.measureText(text_string).width;
         var text_x = (konshuu_canvas.width - text_width) / 2;
-        var text_y = 4;
+        var text_y = 48;
         
         ctx.fillText(text_string, text_x, text_y);
         
