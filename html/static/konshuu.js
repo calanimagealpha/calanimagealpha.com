@@ -103,12 +103,11 @@ function swap_pdf() {
     curr_pdf = pdf;
   });
   
-  konshuu_progress.style.display = "block";
-  
 }
 
 document.addEventListener("keyup", keyupListener);
 konshuu_selection.onchange = swap_pdf;
 konshuu_selection.onclick = defocus_selection;
+
 swap_pdf();
 
