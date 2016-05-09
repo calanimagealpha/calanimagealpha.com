@@ -5,7 +5,6 @@
 PDFJS.workerSrc = 'https://calanimagealpha.com/pdfjs/build/pdf.worker.js';
 
 var konshuu_selection = document.getElementById("konshuu-header-select");
-var konshuu_progress = document.getElementById("konshuu-progress");
 var konshuu_canvas = document.getElementById("pdf-canvas");
 konshuu_canvas.textBaseline = "top";
 
@@ -99,7 +98,6 @@ function swap_pdf() {
 
   PDFJS.getDocument(filename).then(function(pdf) {
     renderPage(pdf, curr_page_number);
-    konshuu_progress.style.display = "none";
     curr_pdf = pdf;
   });
   

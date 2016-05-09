@@ -311,12 +311,6 @@ table.department {
   margin-right: 1em;
 }
 
-#konshuu-progress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
 #pdf-canvas {
   display: block;
   width: 100%;
