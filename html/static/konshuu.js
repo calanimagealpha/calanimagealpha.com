@@ -50,7 +50,7 @@ function renderPage(pdf, page_number) {
         var text_x = (konshuu_canvas.width - text_width) / 2;
         var text_y = 4;
         
-        ctx.fillText(text_string, konshuu_canvas.width, text_x, text_y);
+        ctx.fillText(text_string, text_x, text_y);
         
       });
     });
