@@ -42,15 +42,15 @@ function renderPage(pdf, page_number) {
       
         rendering = null;
         
-        var ctx = konshuu_canvas.getContext('2d')
+        var ctx = konshuu_canvas.getContext('2d');
         ctx.font = '1em Verdana';
         
         var text_string = "Page " + page_number + " of " + pdf.numPages;
-        var text_width = ctx.measureText(text_string).width
-        var text_x = (konshuu_canvas.width - text_width) / 2)
-        var text_y = 4
+        var text_width = ctx.measureText(text_string).width;
+        var text_x = (konshuu_canvas.width - text_width) / 2;
+        var text_y = 4;
         
-        ctx.fillText(text_string, konshuu_canvas.width, text_x, text_y)
+        ctx.fillText(text_string, konshuu_canvas.width, text_x, text_y);
         
       });
     });
