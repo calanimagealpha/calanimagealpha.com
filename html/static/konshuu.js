@@ -39,9 +39,19 @@ function renderPage(pdf, page_number) {
       canvasContext: konshuu_canvas.getContext('2d'),
       viewport: page.getViewport(konshuu_canvas.width / viewport.width)
     }).then (function() {
+      
         rendering = null;
-        konshuu_canvas.getContext('2d').font = '1em Verdana';
-        konshuu_canvas.getContext('2d').fillText("Page "+ page_number +" of " + pdf.numPages, 30, 30);
+        
+        var ctx = konshuu_canvas.getContext('2d')
+        ctx.font = '1em Verdana';
+        
+        var text_string = "Page " + page_number + " of " + pdf.numPages;
+        var text_width = ctx.measureText(text_string).width
+        var text_x = (konshuu_canvas.width - text_width) / 2)
+        var text_y = 4
+        
+        ctx.fillText(text_string, konshuu_canvas.width, text_x, text_y)
+        
       });
     });
   }
