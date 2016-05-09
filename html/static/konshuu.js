@@ -4,7 +4,8 @@
 
 PDFJS.workerSrc = 'https://calanimagealpha.com/pdfjs/build/pdf.worker.js';
 
-var konshuu_selection = document.getElementById("konshuu-header-select")
+var konshuu_selection = document.getElementById("konshuu-header-select");
+var konshuu_progress = document.getElementById("konshuu-progress");
 var konshuu_canvas = document.getElementById("pdf-canvas");
 konshuu_canvas.textBaseline = "top";
 
@@ -94,14 +95,15 @@ function swap_pdf() {
   
   curr_page_number = 1;
   var file = konshuu_selection.value;
-  
-  filename = file;
-  // filename = 'https://calanimagealpha.com/konshuu/' + file;
+  filename = 'https://calanimagealpha.com/konshuu/' + file;
 
   PDFJS.getDocument(filename).then(function(pdf) {
     renderPage(pdf, curr_page_number);
+    konshuu_progress.style.display = "none";
     curr_pdf = pdf;
   });
+  
+  konshuu_progress.style.display = "block";
   
 }
 
