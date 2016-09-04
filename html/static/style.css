@@ -366,12 +366,13 @@ table.department {
     justify-content: center;
     width: 100%;
     min-height: calc(100% - 64px);
+    padding-top: 64px;
     background-color: rgb(255, 255, 255);
 }
 
 #konshuu-reader-canvas {
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #konshuu-reader-left {
