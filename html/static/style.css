@@ -24,7 +24,7 @@ body {
     width: 849px;
     margin: 0 auto;
     min-height: 600px;
-    background: url('/assets/banner.png') top center no-repeat;
+    background: url("/assets/banner.png") top center no-repeat;
     vertical-align: baseline;
 }
 
@@ -345,10 +345,6 @@ table.department {
 
 #konshuu-dropdown-content button:hover {
   color: rgba(255, 255, 255, 0.5);
-}
-
-#konshuu-selector:focus {
-    outline: none;
 }
 
 #konshuu-return {

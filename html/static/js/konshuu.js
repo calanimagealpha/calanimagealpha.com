@@ -1,7 +1,4 @@
-// The initial pdf that gets requested when the page is loaded
-var initial_pdf = "43/12.pdf";
-
-PDFJS.workerSrc = '../static/js/pdf.worker.js';
+PDFJS.workerSrc = "/static/js/pdf.worker.js";
 
 var konshuu_canvas = document.getElementById("konshuu-reader-canvas");
 konshuu_canvas.textBaseline = "top";
@@ -18,6 +15,9 @@ var konshuu_dropdown_content = document.getElementById(
 var konshuu_dropdown_button = document.getElementById(
   "konshuu-dropdown-button"
 );
+
+var konshuu_reader_left = document.getElementById("konshuu-reader-left");
+var konshuu_reader_right = document.getElementById("konshuu-reader-right");
 
 var konshuu_pdf = null;
 var pageNumber = 1;
@@ -47,6 +47,15 @@ function renderPage(pdf, pageNumber) {
             );
         }
     );
+
+    konshuu_reader_left.style.display = "block";
+    konshuu_reader_right.style.display = "block";
+
+    if (pageNumber == 1) {
+        konshuu_reader_left.style.display = "none";
+    } else if (pageNumber == konshuu_pdf.numPages) {
+        konshuu_reader_right.style.display = "none";
+    }
 }
 
 function renderPdf(element, filename) {
@@ -59,22 +68,22 @@ function renderPdf(element, filename) {
     );
     if (element) {
       konshuu_dropdown_button.innerHTML = element.innerHTML;
-      konshuu_dropdown_content.style.display = 'none';
+      hideDropdownContent();
     }
 };
 
 function prevPage() {
-  if (pageNumber > 1) {
-      pageNumber--;
-      renderPage(konshuu_pdf, pageNumber);
-  }
+    if (pageNumber > 1) {
+        pageNumber--;
+        renderPage(konshuu_pdf, pageNumber);
+    }
 };
 
 function nextPage() {
-  if (pageNumber < konshuu_pdf.numPages) {
-    pageNumber++;
-    renderPage(konshuu_pdf, pageNumber);
-  }
+    if (pageNumber < konshuu_pdf.numPages) {
+      pageNumber++;
+      renderPage(konshuu_pdf, pageNumber);
+    }
 };
 
 function keyupListener(e) {
@@ -94,11 +103,16 @@ function showDropdownContent() {
 };
 
 function hideDropdownContent() {
+    konshuu_dropdown_content.scrollTop = 0;
     konshuu_dropdown_content.style.display = "none";
 };
 
-window.addEventListener("load", renderPdf(null, initial_pdf));
+function initReader() {
+    konshuu_dropdown_content.children[0].click();
+};
+
+window.addEventListener("load", initReader);
 document.addEventListener("keyup", keyupListener);
 
 konshuu_dropdown.addEventListener("mouseover", showDropdownContent);
-konshuu_dropdown.addEventListener("mouseout", hideDropdownContent);
+konshuu_dropdown.addEventListener("mouseleave", hideDropdownContent);
