@@ -12,198 +12,56 @@
         <meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
         <meta http-equiv="pragma" content="no-cache">
     </head>
-    <body>
-        <div id="wrapper">
 
-            <div id="header">
-                <div id="navbar">
-                    <div id="menu-header">
-                        <ul id="menu">
-                            <li class="menu-item"><a href="/">Home</a></li>
-                            <li class="menu-item"><a href="/officers/">Officers</a></li>
-                            <li class="menu-item"><a href="/schedule/">Showings</a></li>
-                            <li class="menu-item current-page"><a href="#">Konshuu</a></li>
-                            <li class="menu-item"><a href="/chat/">Chat</a></li>
-                        </ul>
-                    </div>
+    <body class="konshuu">
+        <div id="konshuu-header">
+            <div id="konshuu-title">Konshuu!</div>
+            <div id="konshuu-dropdown">
+                <button id="konshuu-dropdown-button">
+                  <!-- Don't forget to change this! !-->
+                  Volume 44 Issue 1
+                </button>
+                <div id="konshuu-dropdown-content">
+                    <!-- Add NEW Konshuu Here! !-->
+                    <button onclick="renderPdf(this, '44/1.pdf')">Volume 44 Issue 1</button>
+
+                    <button onclick="renderPdf(this, '43/12.pdf')">Volume 43 Issue 12</button>
+                    <button onclick="renderPdf(this, '43/11.pdf')">Volume 43 Issue 11</button>
+                    <button onclick="renderPdf(this, '43/10.pdf')">Volume 43 Issue 10</button>
+                    <button onclick="renderPdf(this, '43/9.pdf')">Volume 43 Issue 9</button>
+                    <button onclick="renderPdf(this, '43/8.pdf')">Volume 43 Issue 8</button>
+                    <button onclick="renderPdf(this, '43/7.pdf')">Volume 43 Issue 7</button>
+                    <button onclick="renderPdf(this, '43/6.pdf')">Volume 43 Issue 6</button>
+                    <button onclick="renderPdf(this, '43/5.pdf')">Volume 43 Issue 5</button>
+                    <button onclick="renderPdf(this, '43/4.pdf')">Volume 43 Issue 4</button>
+                    <button onclick="renderPdf(this, '43/3.pdf')">Volume 43 Issue 3</button>
+                    <button onclick="renderPdf(this, '43/2.pdf')">Volume 43 Issue 2</button>
+                    <button onclick="renderPdf(this, '43/1.pdf')">Volume 43 Issue 1</button>
+                    <button onclick="renderPdf(this, '42/13.pdf')">Volume 42 Issue 13</button>
+                    <button onclick="renderPdf(this, '42/12.pdf')">Volume 42 Issue 12</button>
+                    <button onclick="renderPdf(this, '42/11.pdf')">Volume 42 Issue 11</button>
+                    <button onclick="renderPdf(this, '42/10.pdf')">Volume 42 Issue 10</button>
+                    <button onclick="renderPdf(this, '42/9.pdf')">Volume 42 Issue 9</button>
+                    <button onclick="renderPdf(this, '42/8.pdf')">Volume 42 Issue 8</button>
+                    <button onclick="renderPdf(this, '42/7.pdf')">Volume 42 Issue 7</button>
+                    <button onclick="renderPdf(this, '42/6.pdf')">Volume 42 Issue 6</button>
+                    <button onclick="renderPdf(this, '42/5.pdf')">Volume 42 Issue 5</button>
+                    <button onclick="renderPdf(this, '42/4.pdf')">Volume 42 Issue 4</button>
+                    <button onclick="renderPdf(this, '42/3.pdf')">Volume 42 Issue 3</button>
+                    <button onclick="renderPdf(this, '42/2.pdf')">Volume 42 Issue 2</button>
+                    <button onclick="renderPdf(this, '42/1.pdf')">Volume 42 Issue 1</button>
                 </div>
             </div>
-
-            <div id="main">
-
-                <h1>Konshuu</h1>
-
-                <p>Konshuu is Cal Animage Alpha's weekly newsletter, featuring articles and fanworks from both guests and current officers. Each issue includes an overview of the series that will be shown/read during weekly meetings, information about future events, and an assortment of articles on anime culture. The latest issue is available for free at each weekly showing.</p>
-
-                <h2>Read Konshuu Online</h2>
-                <div class="sep"></div>
-                <p>
-                    <select id="konshuu_selection">
-                        <option value="default">Select an edition...</option>
-						
-                        <option value="43/12.pdf">Volume 43 Issue 12</option>
-
-                        <option value="43/11.pdf">Volume 43 Issue 11</option>
-
-                        <option value="43/10.pdf">Volume 43 Issue 10</option>
-
-                        <option value="43/9.pdf">Volume 43 Issue 9</option>
-
-                        <option value="43/8.pdf">Volume 43 Issue 8</option>
-
-                        <option value="43/7.pdf">Volume 43 Issue 7</option>
-
-                        <option value="43/6.pdf">Volume 43 Issue 6</option>
-
-                        <option value="43/5.pdf">Volume 43 Issue 5</option>
-
-                        <option value="43/4.pdf">Volume 43 Issue 4</option>
-
-                        <option value="43/3.pdf">Volume 43 Issue 3</option>
-
-                        <option value="43/2.pdf">Volume 43 Issue 2</option>
-
-                        <option value="43/1.pdf">Volume 43 Issue 1</option>
-
-                        <option value="42/13.pdf">Volume 42 Issue 13</option>
-
-                        <option value="42/12.pdf">Volume 42 Issue 12</option>
-
-                        <option value="42/11.pdf">Volume 42 Issue 11</option>
-
-                        <option value="42/10.pdf">Volume 42 Issue 10</option>
-
-                        <option value="42/9.pdf">Volume 42 Issue 9</option>
-
-                        <option value="42/8.pdf">Volume 42 Issue 8</option>
-
-                        <option value="42/7.pdf">Volume 42 Issue 7</option>
-
-                        <option value="42/6.pdf">Volume 42 Issue 6</option>
-
-                        <option value="42/5.pdf">Volume 42 Issue 5</option>
-
-                        <option value="42/4.pdf">Volume 42 Issue 4</option>
-
-                        <option value="42/3.pdf">Volume 42 Issue 3</option>
-
-                        <option value="42/2.pdf">Volume 42 Issue 2</option>
-
-                        <option value="42/1.pdf">Volume 42 Issue 1</option>
-
-                    </select>
-
-                    Use the left and right arrow keys to change pages.
-                </p>
-                <p><img id="konshuu_progress" style="display: none;" src="https://calanimagealpha.com/images/progress.gif"></p>
-                <canvas id="konshuu_reader" style="display: none; width: 100%; border:1px solid black;"></canvas>
-                <script type="text/javascript" src="https://calanimagealpha.com/static/js/pdf.js"></script>
-                <script type="text/javascript">
-                    PDFJS.workerSrc = 'https://calanimagealpha.com/static/js/pdf.worker.js';
-                    var konshuu_canvas = document.getElementById("konshuu_reader");
-                    konshuu_canvas.textBaseline = "top";
-                    var konshuu_progress = document.getElementById("konshuu_progress");
-
-                    var rendering = null;
-
-                    function renderPage(pdf, pageNumber)
-                    {
-                        function render(pdf, pageNumber)
-                        {
-                            //console.log("Started page "+pageNumber);
-                            rendering = pdf.getPage(pageNumber).then(function(page) {
-                                    var viewport = page.getViewport(1.0);
-
-                                    var aspect = viewport.height / viewport.width;
-
-                                    konshuu_canvas.width = konshuu_canvas.clientWidth * window.devicePixelRatio;
-                                    konshuu_canvas.height = konshuu_canvas.width * aspect;
-
-                                    rendering = page.render({
-                                        canvasContext: konshuu_canvas.getContext('2d'),
-                                        viewport: page.getViewport(konshuu_canvas.width / viewport.width)
-                                    }).then (function() {
-                                        //console.log("A - Finished page "+pageNumber);
-                                        rendering = null;
-                                        konshuu_canvas.getContext('2d').font = '1em Verdana';
-                                        konshuu_canvas.getContext('2d').fillText("Page "+pageNumber+" of "+pdf.numPages, 30, 30);
-                                    });
-                                });
-                        }
-
-                        if(!rendering)
-                        //{
-                        //  rendering = rendering.then(function() { console.log("B - "+pageNumber); render(pdf, pageNumber); } );
-                        //}
-                        //else
-                        //{
-                            render(pdf, pageNumber);
-                        //}
-                    }
-
-                    var listener = null;
-
-                    document.getElementById("konshuu_selection").onchange = function()
-                    {
-                        var pageNumber = 1;
-                        var file = document.getElementById("konshuu_selection").value;
-                        var filename = ""
-
-                        if(file == "default")
-                            return;
-
-                        if (file[0] == "h") {
-                            filename = file
-                        } else {
-                            filename = 'https://calanimagealpha.com/konshuu/' + file
-                        }
-
-                        PDFJS.getDocument(filename).then(function(pdf) {
-                            renderPage(pdf, 1);
-                            konshuu_canvas.style.display = "block";
-                            konshuu_progress.style.display = "none";
-
-                            function keyupListener(e)
-                            {
-                                if(rendering)
-                                    return;
-
-                                if(e.keyCode == 37 && pageNumber != 1)
-                                {
-                                    pageNumber--;
-                                    renderPage(pdf, pageNumber);
-                                }
-                                if(e.keyCode == 39 && pageNumber != pdf.numPages)
-                                {
-                                    pageNumber++;
-                                    renderPage(pdf, pageNumber);
-                                }
-                            }
-                            listener = keyupListener;
-                            document.addEventListener("keyup", listener);
-                        });
-
-                            if(listener)
-                            {
-                                    document.removeEventListener("keyup", listener);
-                            }
-
-                        konshuu_progress.style.display = "block";
-						
-                    };
-              
-                    
-                </script>
-
-                <h2>Contributing to Konshuu</h2>
-                <div class="sep"></div>
-                <p>Guest submissions are always welcome! To contribute, visit <a target="_blank" href="http://j.mp/konsub">j.mp/konsub</a>.</p>
-                <p>If you're interested in becoming a regular contributor to the newsletter, please contact the current head—Tina (tina.nguyen@berkeley.edu or mechato on IRC)—about working in the Konshuu department</p>
+            <div id="konshuu-return">
+                <a href="https://calanimagealpha.com">Back to Main Site</a>
             </div>
-            <div id="footer">
-                &copy 2016 Cal Animage Alpha. All Rights Reserved.
-            </div>
-
         </div>
+        <div id="konshuu-reader-left" onclick="prevPage()"></div>
+        <div id="konshuu-reader-right" onclick="nextPage()"></div>
+        <div id="konshuu-reader">
+          <canvas id="konshuu-reader-canvas"></canvas>
+        </div>
+        <script type="text/javascript" src="/static/js/pdf.js"></script>
+        <script type="text/javascript" src="/static/js/konshuu.js"></script>
     </body>
 </html>
