@@ -379,6 +379,7 @@ table.department {
 }
 
 #konshuu-reader-left {
+    display: none;
     position: fixed;
     top: 64px;
     width: 96px;

@@ -23,12 +23,12 @@ var konshuu_pdf = null;
 var pageNumber = 1;
 var rendering = false;
 
-function renderPage(pdf, pageNumber) {
+function renderPage(pdf, newPageNumber) {
     if (rendering) {
         return;
     }
 
-    rendering = pdf.getPage(pageNumber).then(
+    rendering = pdf.getPage(newPageNumber).then(
         function(page) {
             var viewport = page.getViewport(1.0);
             var resolution = konshuu_canvas.width / viewport.width;
@@ -43,6 +43,7 @@ function renderPage(pdf, pageNumber) {
             ).then(
                 function() {
                     rendering = false;
+                    pageNumber = newPageNumber;
                 }
             );
         }
@@ -51,15 +52,14 @@ function renderPage(pdf, pageNumber) {
     konshuu_reader_left.style.display = "block";
     konshuu_reader_right.style.display = "block";
 
-    if (pageNumber == 1) {
+    if (newPageNumber == 1) {
         konshuu_reader_left.style.display = "none";
-    } else if (pageNumber == konshuu_pdf.numPages) {
+    } else if (newPageNumber == konshuu_pdf.numPages) {
         konshuu_reader_right.style.display = "none";
     }
 }
 
 function renderPdf(element, filename) {
-    pageNumber = 1;
     PDFJS.getDocument(filename).then(
         function(pdf) {
             konshuu_pdf = pdf;
@@ -74,23 +74,17 @@ function renderPdf(element, filename) {
 
 function prevPage() {
     if (pageNumber > 1) {
-        pageNumber--;
-        renderPage(konshuu_pdf, pageNumber);
+        renderPage(konshuu_pdf, pageNumber - 1);
     }
 };
 
 function nextPage() {
     if (pageNumber < konshuu_pdf.numPages) {
-      pageNumber++;
-      renderPage(konshuu_pdf, pageNumber);
+      renderPage(konshuu_pdf, pageNumber + 1);
     }
 };
 
 function keyupListener(e) {
-    if (rendering) {
-      return;
-    }
-
     if (e.keyCode == 37) {
         prevPage();
     } else if (e.keyCode == 39) {
