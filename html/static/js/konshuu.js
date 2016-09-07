@@ -49,6 +49,8 @@ function renderPage(pdf, newPageNumber) {
         }
     );
 
+    window.scrollTo(0, 0);
+
     konshuu_reader_left.style.display = "block";
     konshuu_reader_right.style.display = "block";
 
