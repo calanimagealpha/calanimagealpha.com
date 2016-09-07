@@ -360,6 +360,11 @@ table.department {
     font-size: 24px;
 }
 
+#konshuu-return a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
 #konshuu-return a:visited {
     color: rgb(255, 255, 255);
     text-decoration: none;
