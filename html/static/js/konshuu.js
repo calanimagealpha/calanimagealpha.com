@@ -23,6 +23,8 @@ var konshuu_pdf = null;
 var pageNumber = 1;
 var rendering = false;
 
+konshuu_dropdown_button.innerHTML = konshuu_dropdown_content.children[0].innerHTML;
+
 function renderPage(pdf, newPageNumber) {
     if (rendering) {
         return;
