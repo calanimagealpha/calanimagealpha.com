@@ -380,6 +380,7 @@ table.department {
 
 #konshuu-reader-canvas {
     width: 80%;
+    border: 1px solid rgb(0, 0, 0);
     margin: auto;
 }
 
