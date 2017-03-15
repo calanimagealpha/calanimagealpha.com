@@ -410,3 +410,11 @@ table.department {
 }
 
 /**** Konshuu ****/
+
+/**** Calendar ****/
+#calendar {
+    margin:10px;
+}
+#calendar h2 {
+    margin-top:8px;
+}
