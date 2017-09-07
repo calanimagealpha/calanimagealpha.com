@@ -23,7 +23,9 @@
 
 
   .top-bar {
+      position: fixed;
       display: flex;
+      background-color: #000000;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
