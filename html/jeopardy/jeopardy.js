@@ -180,6 +180,7 @@ function RetrieveCategories(categoriesNode) {
     });
 
     var numberDailyDoubles = parseInt(categoriesNode.data("daily-doubles"));
+    Debug(categoriesNode.data("daily-doubles"));
     var dailyDoublesList = [];
     for (var i = 0; i < numberDailyDoubles; i++)
     {
@@ -239,8 +240,14 @@ function GenerateNodeFromData(dataNode, containerNode)
         case "image":
             var imageSource = dataNode.data("source");
             var img = $("<img />");
+            var dv = $("<div />");
+            var dv2 = $("<div style='font-size:30px'/>");
+            Debug(dataNode.html());
+            dv2.html(dataNode.html());
             img.attr("src", imageSource);
-            item = img;
+            dv.append(img);
+            dv.append(dv2);
+            item = dv;
             break;
 
         case "audio":
@@ -492,6 +499,7 @@ function ApplyKeyShortcuts()
 function Debug(s)
 {
     $("#debug").text(s);
+    console.log(s);
 }
 
 var popupCount = 0;
