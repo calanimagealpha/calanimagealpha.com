@@ -22,6 +22,7 @@ var konshuu_reader_right = document.getElementById("konshuu-reader-right");
 var konshuu_pdf = null;
 var pageNumber = 1;
 var rendering = false;
+var pdf_filename = null;
 
 konshuu_dropdown_button.innerHTML = konshuu_dropdown_content.children[0].innerHTML;
 
@@ -46,6 +47,8 @@ function renderPage(pdf, newPageNumber) {
                 function() {
                     rendering = false;
                     pageNumber = newPageNumber;
+                    page = "/konshuu/" + pdf_filename.split(".")[0] + "/" +  pageNumber.toString();
+                    gtag('config', 'UA-106889406-1', {'page_path': page});
                 }
             );
         }
@@ -68,6 +71,7 @@ function renderPdf(element, filename) {
         function(pdf) {
             konshuu_pdf = pdf;
             renderPage(konshuu_pdf, 1);
+            pdf_filename = filename;
         }
     );
     if (element) {
