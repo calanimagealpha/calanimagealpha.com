@@ -311,6 +311,7 @@
       border-right: 0px;
       border-radius: 2px;
       border-left-width: 5px;
+      font-size:2em;
   }
 
   .below-the-fold-item h2:nth-child(2n+1) {
