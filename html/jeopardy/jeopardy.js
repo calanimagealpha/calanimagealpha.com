@@ -253,9 +253,13 @@ function GenerateNodeFromData(dataNode, containerNode)
         case "audio":
             var audioSource = dataNode.data("source");
             var audioType = dataNode.data("audio-type");
-            item = $("<audio controls />");
+            var startTime = dataNode.data("start-time");
+            var endTime = dataNode.data("end-time");
+            item = $("<audio controls>");
             item.append("<source>");
             item.find("source").attr("src", audioSource).attr("type", audioType);
+            item.currentTime = startTime;
+
     }
     containerNode.find(".container-node-target").addBack(".container-node-target").append(item)
     return containerNode;
