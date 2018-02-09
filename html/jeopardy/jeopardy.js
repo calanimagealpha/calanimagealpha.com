@@ -258,8 +258,6 @@ function GenerateNodeFromData(dataNode, containerNode)
             item = $("<audio controls>");
             item.append("<source>");
             item.find("source").attr("src", audioSource).attr("type", audioType);
-            item.currentTime = startTime;
-
     }
     containerNode.find(".container-node-target").addBack(".container-node-target").append(item)
     return containerNode;
