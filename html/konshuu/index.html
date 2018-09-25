@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <title>CAA - Konshuu</title>
         <meta name="description" content="The official Anime Club at the University of California, Berkeley">
+        <meta property="og:image" content="https://i.imgur.com/SJfqEES.png" />
         <meta name="keywords" content="berkeley, university, uc berkeley, anime club, cal animage alpha, cal">
         <link rel="stylesheet" type="text/css" href="/static/style.css">
-    	<link href="../assets/yellow.png" rel="icon" type="image/png"> 
-
+    	<link href="../assets/yellow.png" rel="icon" type="image/png">
         <!-- force refresh to keep schedule updated -->
         <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
         <meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
@@ -30,6 +30,8 @@
                 <button id="konshuu-dropdown-button"></button>
                 <div id="konshuu-dropdown-content">
                     <!-- Add NEW Konshuu Here! !-->
+                    <button onclick="renderPdf(this, '48/3.pdf')">Volume 48 Issue 3</button>
+                    <button onclick="renderPdf(this, '48/2.pdf')">Volume 48 Issue 2</button>
                     <button onclick="renderPdf(this, '48/1.pdf')">Volume 48 Issue 1</button>
                     <button onclick="renderPdf(this, '47/11.pdf')">Volume 47 Issue 11</button>
                     <button onclick="renderPdf(this, '47/10.pdf')">Volume 47 Issue 10</button>
