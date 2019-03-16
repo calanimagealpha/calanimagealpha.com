@@ -411,6 +411,45 @@ table.department {
 
 /**** Konshuu ****/
 
+/**** Zoom Buttons ***/
+.zbutton {
+    display: inline-block;
+    *zoom: 1;
+    text-align: center;
+    font-family: inherit;
+    vertical-align: middle;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+    color: #808080;
+    border-color: #808080;
+    font-size: 0.8em;
+    padding: 0.4em 1em;
+}
+
+.zbutton:hover {
+  background: #808080;
+  color: #fff;
+  border-color: #808080;    
+}
+
+.zoomin {
+    margin-top:0%;
+    bottom: 10px;
+    position: fixed;
+    margin-left: 100px;
+}
+
+.zoomout {
+    margin-top:0%;
+    bottom: 10px;
+    position: fixed;
+    margin-left: 140px;
+}
+
+/**** Zoom Buttons ***/
+
 /**** Calendar ****/
 #calendar {
     margin:10px;

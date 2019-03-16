@@ -113,6 +113,22 @@ function initReader() {
     konshuu_dropdown_content.children[0].click();
 };
 
+function zoomin() {
+    var currWidth = konshuu_canvas.clientWidth;
+    if(currWidth == 2500) return false;
+     else{
+        konshuu_canvas.style.width = (currWidth + 100) + "px";
+    } 
+};
+
+function zoomout() {
+    var currWidth = konshuu_canvas.clientWidth;
+    if(currWidth == 100) return false;
+     else{
+        konshuu_canvas.style.width = (currWidth - 100) + "px";
+    }
+};
+
 window.addEventListener("load", initReader);
 document.addEventListener("keyup", keyupListener);
 
