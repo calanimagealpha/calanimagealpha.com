@@ -100,6 +100,23 @@ function keyupListener(e) {
     }
 };
 
+//Zoom Functions
+function zoomin() {
+    var currWidth = konshuu_canvas.clientWidth;
+    if(currWidth == 2500) return false;
+     else{
+        konshuu_canvas.style.width = (currWidth + 100) + "px";
+    } 
+};
+
+function zoomout() {
+    var currWidth = konshuu_canvas.clientWidth;
+    if(currWidth == 100) return false;
+     else{
+        konshuu_canvas.style.width = (currWidth - 100) + "px";
+    }
+};
+
 function showDropdownContent() {
     konshuu_dropdown_content.style.display = "block";
 };
