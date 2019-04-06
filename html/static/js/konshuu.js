@@ -1,4 +1,6 @@
-PDFJS.workerSrc = "/static/js/pdf.worker.js";
+//PDFJS.workerSrc = "/static/js/pdf.worker.js";
+pdfjsLib.GlobalWorkerOptions.workerSrc = '/static/js/pdfjs-dist/build/pdf.worker.js';
+
 
 var konshuu_canvas = document.getElementById("konshuu-reader-canvas");
 konshuu_canvas.textBaseline = "top";
@@ -67,7 +69,7 @@ function renderPage(pdf, newPageNumber) {
 }
 
 function renderPdf(element, filename) {
-    PDFJS.getDocument(filename).then(
+    pdfjsLib.getDocument(filename).then(
         function(pdf) {
             konshuu_pdf = pdf;
             renderPage(konshuu_pdf, 1);
