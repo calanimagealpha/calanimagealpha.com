@@ -1,134 +1,78 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>CAA - Konshuu</title>
-        <meta name="description" content="The official Anime Club at the University of California, Berkeley">
-        <meta property="og:image" content="https://i.imgur.com/NFdIpqJ.jpg" />
-        <meta name="keywords" content="berkeley, university, uc berkeley, anime club, cal animage alpha, cal">
-        <link rel="stylesheet" type="text/css" href="/static/style.css">
-    	<link href="../assets/yellow.png" rel="icon" type="image/png">
-        <!-- force refresh to keep schedule updated -->
-        <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
-        <meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
-        <meta http-equiv="pragma" content="no-cache">
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106889406-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)};
-          gtag('js', new Date());
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAA - Konshuu Reader</title>
+  <meta name="description" content="The official Anime Club at the University of California, Berkeley">
+  <meta name="keywords" content="berkeley, university, uc berkeley, ucb, anime, anime club, cal animage alpha, cal, konshuu">
+  <link rel="icon" href="/assets/favicon.ico" />
+  
+  <meta property="og:title" content="Konshuu Reader" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://calanimagealpha.com/" />
+  <meta property="og:image" content="https://calanimagealpha.com/konshuu-card.jpg" />
+  <meta name="twitter:card" content="summary">
+  
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="./style.css">
+      
+  <!-- force refresh to keep schedule updated -->
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+  <meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
+  <meta http-equiv="pragma" content="no-cache">
+          
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106889406-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
+    gtag('config', 'UA-106889406-1');
+  </script>
+</head>
+<body>
 
-          gtag('config', 'UA-106889406-1');
-        </script>
-    </head>
+<div id="overlay-settings">
+  <div id="overlay-content">
+    <div class="dropdown">
+      <button class="overlay-text dropdown-button" id="current-reading" onclick="toggleIssueDropdown();">
+        Volume 0 Issue 0 &#9662;
+      </button>
+      <div class="dropdown-content" id="issue-selector-content">
+        List of volumes
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="overlay-text dropdown-button" id="resize-settings" onclick="toggleResizeDropdown();">
+        Fit to container &#9662;
+      </button>
+      <div class="dropdown-content" id="resize-selector-content">
+        List of resize options
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="overlay-text dropdown-button" id="page-selector" onclick="togglePageDropdown();">
+        Page 0
+      </button>
+      <div class="dropdown-content" id="page-selector-content">
+        List of pages
+      </div>
+    </div>
+    <a href="/index.html"><img src="/assets/yellow_small.png" /></a>
+  </div>
+</div>
+  
+<button id="collapsible-button" onclick="openSettings();">&#9654;</button>
+<div id="page-container">
+  <canvas id="page"></canvas>
+</div>
 
-    <body class="konshuu">
-        <div id="konshuu-header">
-            <div id="konshuu-title">Konshuu!</div>
-            <div id="konshuu-dropdown">
-                <button id="konshuu-dropdown-button"></button>
-                <div id="konshuu-dropdown-content">
-                    <!-- Add NEW Konshuu Here! !-->
-                    <button onclick="renderPdf(this, '49/8.pdf')">Volume 49 Issue 8</button>
-                    <button onclick="renderPdf(this, '49/7.pdf')">Volume 49 Issue 7</button>
-                    <button onclick="renderPdf(this, '49/6.pdf')">Volume 49 Issue 6</button>
-                    <button onclick="renderPdf(this, '49/5.pdf')">Volume 49 Issue 5</button>
-                    <button onclick="renderPdf(this, '49/4.pdf')">Volume 49 Issue 4</button>
-                    <button onclick="renderPdf(this, '49/3.pdf')">Volume 49 Issue 3</button>
-                    <button onclick="renderPdf(this, '49/2.pdf')">Volume 49 Issue 2</button>
-                    <button onclick="renderPdf(this, '49/1.pdf')">Volume 49 Issue 1</button>
-                    <button onclick="renderPdf(this, '48/13.pdf')">Volume 48 Issue 13</button>
-                    <button onclick="renderPdf(this, '48/12.pdf')">Volume 48 Issue 12</button>
-                    <button onclick="renderPdf(this, '48/11.pdf')">Volume 48 Issue 11</button>
-                    <button onclick="renderPdf(this, '48/10.pdf')">Volume 48 Issue 10</button>
-                    <button onclick="renderPdf(this, '48/9.pdf')">Volume 48 Issue 9</button>
-                    <button onclick="renderPdf(this, '48/8.pdf')">Volume 48 Issue 8</button>
-                    <button onclick="renderPdf(this, '48/7.pdf')">Volume 48 Issue 7</button>
-                    <button onclick="renderPdf(this, '48/6.pdf')">Volume 48 Issue 6</button>
-                    <button onclick="renderPdf(this, '48/5.pdf')">Volume 48 Issue 5</button>
-                    <button onclick="renderPdf(this, '48/4.pdf')">Volume 48 Issue 4</button>
-                    <button onclick="renderPdf(this, '48/3.pdf')">Volume 48 Issue 3</button>
-                    <button onclick="renderPdf(this, '48/2.pdf')">Volume 48 Issue 2</button>
-                    <button onclick="renderPdf(this, '48/1.pdf')">Volume 48 Issue 1</button>
-                    <button onclick="renderPdf(this, '47/11.pdf')">Volume 47 Issue 11</button>
-                    <button onclick="renderPdf(this, '47/10.pdf')">Volume 47 Issue 10</button>
-                    <button onclick="renderPdf(this, '47/9.pdf')">Volume 47 Issue 9</button>
-                    <button onclick="renderPdf(this, '47/8.pdf')">Volume 47 Issue 8</button>
-                    <button onclick="renderPdf(this, '47/7.pdf')">Volume 47 Issue 7</button>
-                    <button onclick="renderPdf(this, '47/6.pdf')">Volume 47 Issue 6</button>
-                    <button onclick="renderPdf(this, '47/5.pdf')">Volume 47 Issue 5</button>
-                    <button onclick="renderPdf(this, '47/4.pdf')">Volume 47 Issue 4</button>
-                    <button onclick="renderPdf(this, '47/3.pdf')">Volume 47 Issue 3</button>
-                    <button onclick="renderPdf(this, '47/2.pdf')">Volume 47 Issue 2</button>
-                    <button onclick="renderPdf(this, '47/1.pdf')">Volume 47 Issue 1</button>
-                    <button onclick="renderPdf(this, '46/12.pdf')">Volume 46 Issue 12</button>
-                    <button onclick="renderPdf(this, '46/11.pdf')">Volume 46 Issue 11</button>
-                    <button onclick="renderPdf(this, '46/10.pdf')">Volume 46 Issue 10</button>
-                    <button onclick="renderPdf(this, '46/9.pdf')">Volume 46 Issue 9</button>
-                    <button onclick="renderPdf(this, '46/8.pdf')">Volume 46 Issue 8</button>
-                    <button onclick="renderPdf(this, '46/7.pdf')">Volume 46 Issue 7</button>
-                    <button onclick="renderPdf(this, '46/6.pdf')">Volume 46 Issue 6</button>
-                    <button onclick="renderPdf(this, '46/5.pdf')">Volume 46 Issue 5</button>
-                    <button onclick="renderPdf(this, '46/4.pdf')">Volume 46 Issue 4</button>
-                    <button onclick="renderPdf(this, '46/3.pdf')">Volume 46 Issue 3</button>
-                    <button onclick="renderPdf(this, '46/2.pdf')">Volume 46 Issue 2</button>
-                    <button onclick="renderPdf(this, '46/1.pdf')">Volume 46 Issue 1</button>
-                    <button onclick="renderPdf(this, '45/6.pdf')">Volume 45 Issue 6</button>
-                    <button onclick="renderPdf(this, '45/5.pdf')">Volume 45 Issue 5</button>
-                    <button onclick="renderPdf(this, '45/4.pdf')">Volume 45 Issue 4</button>
-                    <button onclick="renderPdf(this, '45/3.pdf')">Volume 45 Issue 3</button>
-                    <button onclick="renderPdf(this, '45/2.pdf')">Volume 45 Issue 2</button>
-                    <button onclick="renderPdf(this, '45/1.pdf')">Volume 45 Issue 1</button>
-                    <button onclick="renderPdf(this, '44/8.pdf')">Volume 44 Issue 8</button>
-                    <button onclick="renderPdf(this, '44/7.pdf')">Volume 44 Issue 7</button>
-                    <button onclick="renderPdf(this, '44/6.pdf')">Volume 44 Issue 6</button>
-                    <button onclick="renderPdf(this, '44/5.pdf')">Volume 44 Issue 5</button>
-                    <button onclick="renderPdf(this, '44/4.pdf')">Volume 44 Issue 4</button>
-                    <button onclick="renderPdf(this, '44/3.pdf')">Volume 44 Issue 3</button>
-                    <button onclick="renderPdf(this, '44/2.pdf')">Volume 44 Issue 2</button>
-                    <button onclick="renderPdf(this, '44/1.pdf')">Volume 44 Issue 1</button>
-                    <button onclick="renderPdf(this, '43/12.pdf')">Volume 43 Issue 12</button>
-                    <button onclick="renderPdf(this, '43/11.pdf')">Volume 43 Issue 11</button>
-                    <button onclick="renderPdf(this, '43/10.pdf')">Volume 43 Issue 10</button>
-                    <button onclick="renderPdf(this, '43/9.pdf')">Volume 43 Issue 9</button>
-                    <button onclick="renderPdf(this, '43/8.pdf')">Volume 43 Issue 8</button>
-                    <button onclick="renderPdf(this, '43/7.pdf')">Volume 43 Issue 7</button>
-                    <button onclick="renderPdf(this, '43/6.pdf')">Volume 43 Issue 6</button>
-                    <button onclick="renderPdf(this, '43/5.pdf')">Volume 43 Issue 5</button>
-                    <button onclick="renderPdf(this, '43/4.pdf')">Volume 43 Issue 4</button>
-                    <button onclick="renderPdf(this, '43/3.pdf')">Volume 43 Issue 3</button>
-                    <button onclick="renderPdf(this, '43/2.pdf')">Volume 43 Issue 2</button>
-                    <button onclick="renderPdf(this, '43/1.pdf')">Volume 43 Issue 1</button>
-                    <button onclick="renderPdf(this, '42/13.pdf')">Volume 42 Issue 13</button>
-                    <button onclick="renderPdf(this, '42/12.pdf')">Volume 42 Issue 12</button>
-                    <button onclick="renderPdf(this, '42/11.pdf')">Volume 42 Issue 11</button>
-                    <button onclick="renderPdf(this, '42/10.pdf')">Volume 42 Issue 10</button>
-                    <button onclick="renderPdf(this, '42/9.pdf')">Volume 42 Issue 9</button>
-                    <button onclick="renderPdf(this, '42/8.pdf')">Volume 42 Issue 8</button>
-                    <button onclick="renderPdf(this, '42/7.pdf')">Volume 42 Issue 7</button>
-                    <button onclick="renderPdf(this, '42/6.pdf')">Volume 42 Issue 6</button>
-                    <button onclick="renderPdf(this, '42/5.pdf')">Volume 42 Issue 5</button>
-                    <button onclick="renderPdf(this, '42/4.pdf')">Volume 42 Issue 4</button>
-                    <button onclick="renderPdf(this, '42/3.pdf')">Volume 42 Issue 3</button>
-                    <button onclick="renderPdf(this, '42/2.pdf')">Volume 42 Issue 2</button>
-                    <button onclick="renderPdf(this, '42/1.pdf')">Volume 42 Issue 1</button>
-                </div>
-            </div>
-            <div id="konshuu-return">
-                <a href="https://calanimagealpha.com">Back to Main Site</a>
-            </div>
-        </div>
-        <div id="konshuu-reader-left" onclick="prevPage()"></div>
-        <div id="konshuu-reader-right" onclick="nextPage()"></div>
-        <div id="konshuu-reader">
-          <canvas id="konshuu-reader-canvas"></canvas>
-        </div>
+<script type="text/javascript" src="/static/js/pdf.min.js"></script>
+<script type="text/javascript" src="./data.js"></script>
+<script type="text/javascript" src="./pdf_reader.js"></script>
+<script type="text/javascript" src="./controller.js"></script>
 
-        <button class="zoomin zbutton" type="button" onclick="zoomin()">+</button>
-        <button class="zoomout zbutton" type="button" onclick="zoomout()">-</button>
+</body>
 
-        <script type="text/javascript" src="../static/js/pdfjs-dist/build/pdf.js"></script>
-        <script type="text/javascript" src="/static/js/konshuu.js?v=1.0.0"></script>
-    </body>
 </html>
