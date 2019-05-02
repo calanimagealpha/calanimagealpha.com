@@ -1,0 +1,200 @@
+<html>
+<head>
+<style type="text/css">
+body {
+    background-color: #212121;
+    color: #fff;
+    margin: 0;
+}
+
+#header_text {
+    border-bottom: 1px solid #fff;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Myriad Pro", "Lucida Sans", sans-serif;
+    font-size: 30px;
+}
+
+#header_subtext {
+    margin-left: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+#next_showing {
+    margin-top: 10px;
+    position: relative;
+    width: 960px;
+    height: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("bg2.jpg");
+    background-size: 960px auto;
+    background-position: 0% 50%;
+}
+
+.upcoming_sidebar {
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.upcoming_header {
+    padding-top: 10px;
+    font-family: Futura, Arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#next_showing_text {
+    display: inline-block;
+    max-width: 300px;
+    padding: 20px;
+    height: 100%;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#body_wrap {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#posts {
+    width: 720px;
+}
+
+.post {
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.post_title {
+    font-size: 24px;
+    border-bottom: 1px solid #F3B22E;
+    margin-bottom: 10px;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 240px;
+}
+
+#game_night {
+    background-color: #c0da5f;
+    background-image: url("gamenight_bg.png");
+}
+
+#manga_social {
+    background-color: #56c1ec;
+    background-image: url("mangasocial_bg.png");
+}
+
+#navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding-top: 3px;
+}
+
+#navigation li {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    border-bottom: 1px solid #5d5d5d;
+}
+
+#navigation a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+
+#navigation a:hover{
+    color: #F3B22E;
+    background-color: #222;
+}
+
+.post a{
+    text-decoration: none;
+    color: #4f4f4f;
+    border-bottom: 1px solid #adadad;
+    padding: 2px;
+}
+.post a:hover{
+    border-bottom: 1px solid #828282;
+    /*background: rgba(0,0,0,0.1);*/
+    background: #e1e1e1;
+}
+</style>
+</head>
+<body>
+    <div id="header_text">
+        Cal Animage Alpha
+        <span id="header_subtext">
+            UC Berkeley's Anime Club Since 1989
+        </span>
+    </div>
+    <div id="next_showing">
+        <div id="next_showing_text" class="upcoming_header">
+            NEXT SHOWING<br/>
+            <i>Death Parade</i><br/>
+            <br/>
+            7-10PM 4/27/15<br/>
+            Dwinelle 243
+        </div>
+        <div id="sidebar">
+        <div id="manga_social" class="upcoming_sidebar">
+            <div class="upcoming_header">Manga Social</div>
+                Every Thursday<br/>
+                6:30-7:30PM<br/>
+                ???
+            </div>
+            <div id="game_night" class="upcoming_sidebar">
+                <div class="upcoming_header">Game Nights</div>
+                Every Thursday<br/>
+                7:30-10PM<br/>
+                Dwinelle 258/259
+            </div>
+        </div>
+    </div>
+    <div id="body_wrap">
+        <div id="posts">
+            <div class="post">
+                <div class="post_title">
+                    Welcome to the CAA website!
+                </div>
+
+                <p>New Cal student? Interested in CAA? Join our <a href="https://facebook.com/groups/calanimagealpha"> Facebook group</a>, like our <a href="https://facebook.com/calanimagealpha">page</a>, and introduce yourself!</p>
+<p>Is this your first time visiting our website? Read all <a href="about">about us and what we do</a>.</p>
+
+            </div>
+        </div>
+        <div id="sidebar">
+            <ul id="navigation">
+                <li><a href="">Home</a></li>
+                <li><a href="joining">Joining</a></li>
+                <li><a href="schedules/current">Showing Schedule</a></li>
+                <li><a href="events">Events/Calendar</a></li>
+                <li><a href="konshuu">Konshuu</a></li>
+                <li><a href="library">Library</a></li>
+                <li><a href="about">About Us</a></li>
+                <li><a href="officers">Officers</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
