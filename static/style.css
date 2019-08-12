@@ -7,7 +7,7 @@ body {
     font-family: "Cyntho Pro Regular";
     background-color: #191919;
     color: #1E1E1E;
-    margin: 0;
+    margin: 0px;
 }
 
 .sep {
@@ -31,6 +31,10 @@ body {
 #header {
     padding: 0;
 }
+#back {
+  position: absolute;
+  top: 0;
+}
 
 #footer {
     text-align: right;
@@ -46,7 +50,7 @@ body {
     margin: 0 auto;
     width: 843px;
     margin-top: 278px;
-    border-top: 1px solid #FFFFFF;
+    border-top: 10px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     border-left: 3px solid #000000;
     border-right: 4px solid #000000;
@@ -455,4 +459,3 @@ table.department {
 #calendar h2 {
     margin-top:8px;
 }
-
