@@ -182,6 +182,7 @@
       border-radius: 0.2em;
       line-height: 115%;
       position: relative;
+      
   }
 
   #first-box {
@@ -191,6 +192,8 @@
   .info-box h2 {
       margin: 0.25em;
       letter-spacing: 2px;
+      color: RoyalBlue;
+
   }
 
   #next {
