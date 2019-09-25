@@ -44,6 +44,7 @@
       word-spacing: -1px;
       display: inline;
       position: relative;
+      background-color: inherit;
   }
 
   .top-bar-item a {
@@ -64,6 +65,7 @@
       width: 10em;
       word-spacing: 2px;
       padding: 5px 0px 10px;
+      background-color: inherit;
   }
 
   .top-bar-item ul li {
