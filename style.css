@@ -363,8 +363,7 @@
   .department {
     position: sticky;
     margin: auto;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding: 15%;
     padding-top: 15px;
   }
 
