@@ -361,10 +361,11 @@
   }
 
   .department {
-    position: sticky;
+    position: justify;
     margin: auto;
     padding: 15%;
     padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .history {
