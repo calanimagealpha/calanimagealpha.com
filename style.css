@@ -363,6 +363,7 @@
   .department {
     position: justify;
     margin: auto;
+    width: auto;
     padding: 15%;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -443,6 +444,7 @@
     border-radius: 25px;
     position: sticky;
     margin:auto;
+    max-width: 900px;
     width: 70%;
     border: 3px solid #97e8e7;
     background-color: #fff6c5;
