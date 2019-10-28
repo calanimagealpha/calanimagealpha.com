@@ -141,7 +141,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
     top: 0px;
     min-height: 100vh;
   }
@@ -150,23 +149,21 @@
       background:rgba(0,0,0,0.5);
   }
 
-  video#bgvid {
-      position: absolute;
-      top: 60%;
-      left: 50%;
+  .hero-image {
+      position: static;
       width: auto;
       height: auto;
       min-width: 100%;
       min-height: 100%;
       z-index: -100;
-      -webkit-transform: translate(-50%, -50%);
+      overflow-x: hidden;
+      transform: translate(0%, -50%)
+      /*-webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);*/
   }
-  .video-bg {
-      overflow: hidden;
-  }
+
   .info-boxes {
       display: flex;
       flex-direction: row;
@@ -268,6 +265,7 @@
       flex-direction: column;
       align-items: stretch;
       justify-content: space-around;
+      transform: translate(0%, -30%)
   }
 
   .below-the-fold > div:nth-child(2n+1) {
