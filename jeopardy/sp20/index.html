@@ -1,0 +1,343 @@
+<!-- saved from url=(0014)about:internet -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <title>Anime Jeopardy! Spring 2020 Edition!</title>
+        <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="jeopardy.js"></script>
+        <link rel="stylesheet" type="text/css" href="jeopardy.css"  />
+
+        <script>
+            $(document).ready(function () {
+                Jeopardy($("#main-page .clue-table"));
+            });
+        </script>
+    </head>
+    <body>
+        <div id="data">
+            <div id="preset-teams">
+                <div>Team A</div>
+                <div>Team B</div>
+                <div>Team C</div>
+                <div>Team D</div>
+                <div data-color="#000000">Audience</div>
+            </div>
+            <div id="popups">
+                <div data-popup="jeopardy" class="jeopardy-popup clue-popup popup-box non-selectable">
+                    <h1></h1>
+                    <div class="table">
+                        <div class="row clue-row"><div class="cell container"></div></div>
+                        <div class="row controls-row">
+                            <div class="cell"><span class="round-timer-button circle-button" title="Start the round timer">&#9200;</span></div>
+                            <div class="cell"><span class="answer-timer-button circle-button" title="Start the answer timer">&#8987;</span></div>
+                            <div class="cell answer-timer-cell">
+                                <div class="answer-timer" data-interval-length="0.6" data-interval-count="10">&#x25ae;</div>
+                            </div>
+                            <div class="cell"><span class="answer-button circle-button" title="Show Answer">A</span></div>
+                        </div>
+                    </div>
+                    <div class="close-button circle-button">&times;</div>
+                    <div class="round-timer hide-toggle"><span class="timer-value">10</span></div>
+                </div>
+                <div data-popup="final-jeopardy" class="final-jeopardy-popup clue-popup popup-box non-selectable">
+                    <h1></h1>
+                    <div class="table">
+                        <div class="row clue-row"><div class="cell container"></div></div>
+                        <div class="row controls-row">
+                            <div class="cell music-container">
+                                <span class="play-button circle-button" title="Play/Pause">&#x25b6;</span>
+                            </div>
+                            <div class="cell filler"></div>
+                            <div class="cell"><span class="show-score-button circle-button">Final Scores</span></div>
+                            <div class="cell filler"></div>
+                            <div class="cell"><span class="answer-button circle-button" title="Show Answer">A</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-popup="add-team" class="add-team-popup popup-box">
+                    <div>
+                        <h1>Team Name</h1>
+                        <input />
+                        <button>Add Team</button>
+                    </div>
+                    <div class="arrow">&#9660;</div>
+                </div>
+                <div data-popup="team-editor" class="team-editor-popup popup-box color-target non-selectable" data-target-style="background-color">
+                    <h1>Editting Team</h1>
+                    <h2 class="header-team-name"></h2>
+                    <div><span class="label">Name</span><input class="team-name" /></div>
+                    <div><span class="label">Score</span><input class="team-score" /></div>
+                    <div style="display:  none"><span class="label">Color</span><input class="team-color" /></div>
+                    <button class="save-changes">Save Changes</button>
+                    <button class="delete-team">Delete</button>
+                </div>
+                <div data-popup ="final-jeopardy-wager" class="final-jeopardy-wager-popup wager-popup popup-box non-selectable">
+                    <h1>Final Jeopardy</h1>
+                    <h2 class="category-name">Category</h2>
+                    <h3>Make your wagers</h3>
+                    <div class="wager-list-container"><div class="wager-list table"></div>
+                    </div>
+                    <span class="reveal-clue circle-button">Reveal Clue</span>
+                </div>
+                <div data-popup ="daily-double" class="daily-double-popup wager-popup popup-box non-selectable">
+                    <h1>Daily Double</h1>
+                    <h2 class="category-name">Category</h2>
+                    <h3>Make your wager</h3>
+                    <div class="wager"><input /></div>
+                    <span class="reveal-clue circle-button">Reveal Clue</span>
+                </div>
+            </div>
+
+            <div id="templates">
+                <div data-template="overlay"></div>
+                <div data-template="clue-row" class="row"></div>
+                <div data-template="category-cell" class="cell category"><div class="container"></div></div>
+                <div data-template="clue-cell" class="cell clue"><div class="container"></div></div>
+                <div data-template="empty-cell" class="cell empty"></div>
+                <div data-template="team-cell" class="cell team button non-selectable team-background">
+                    <div class="buttons">
+                        <div class="circle-button correct-button">&#x2713;</div>
+                        <div class="circle-button incorrect-button">&times;</div>
+                    </div>
+                    <div class="stats">
+                        <input type="text" class="team-name" />
+                        <input type="number" class="team-score" />
+                    </div>
+
+                </div>
+                <div data-template="wager-list-item" class="wager row">
+                    <span class="team-color-container cell"><span class="color-target" data-target-style="background-color"></span></span>
+                    <span class="team-name-container cell"><span class="team-name">Name</span></span>
+                    <span class="team-wager-container cell">
+                        <input />
+                        <span class="valid-input" data-valid="0x2714" data-invalid="0x2718">&#x2718;</span>
+                    </span>
+                </div>
+                <div data-template="clue-node" class='table'>
+                    <div class='row'>
+                        <div class='cell container-node-target'></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="team-colors" data-min-opacity="0.3" data-max-opacity="0.8">
+                <span id="base-color" data-color="#808080"></span>
+                <span data-color="#800000"></span>
+                <span data-color="#008000"></span>
+                <span data-color="#000080"></span>
+                <span data-color="#400080"></span>
+              a  <span data-color="#D06000"></span>
+                <span data-color="#000080"></span>
+            </div>
+            <div id="categories" data-multiplier="100" data-daily-doubles="2">
+
+                <!-- Example clues. If you copy this, make sure to delete the following part:
+
+                     class="example"
+
+                -->
+                <div class="example" data-name="Example Clues" data-multiplier="400">
+                    <div>
+                        <div class="clue" data-type="text">Other than his lack of hair, he's pretty average-looking. But despite his skinny build, the hero can defeat enemies in one punch in this webcomic-turned-manga.</div>
+                        <div class="answer">One-Punch Man</div>
+                    </div>
+
+                    <!-- data-value overrides the calculated value of the clue -->
+                    <div data-value="400">
+                        <!-- use data-type="image" and data-source to use an image in the same folder -->
+                        <div class="clue" data-type="image" data-source="beauty2.png"></div>
+                        <div class="answer">Evangeline A. K. McDowell<br/>(Negima!)</div>
+                    </div>
+                    <div>
+                        <!-- use data-type="audio" to use an audio file in the same folder. -->
+                        <div class="clue" data-type="audio" data-source="test.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">ololol</div>
+                    </div>
+                </div>
+                <!-- Edit actual Jeopardy questions below -->
+                <div data-name="Playable Protags">
+                    <div>
+                        <div class="clue" data-type="image" data-source="joker.jpg"></div>
+                        <div class="answer">Joker/Amamiya Ren/Kurusu Akira, Persona 5</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="fatego.webp"></div>
+                        <div class="answer">Gudao/Gudako/Fujimaru Ritsuka, Fate/Grand Order</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="seragaki.png"></div>
+                        <div class="answer">Seragaki Aoba, Dramatical Murder</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="komaru.webp"></div>
+                        <div class="answer">Naegi Komaru, Danganronpa Another Episode/Ultra Despair Girls</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="izumi.webp"></div>
+                        <div class="answer">Tachibana Izumi, A3!</div>
+                    </div>
+                </div>
+                <div data-name="Not 90 Second Openings">
+                    <div>
+                        <div class="clue" data-type="audio" data-source="naruto.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">Naruto</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="audio" data-source="yugioh.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">Yu-Gi-Oh! 5D’s</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="audio" data-source="castlevania.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">Castlevania</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="audio" data-source="tonari.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">My Neighbor Seki or Tonari no Seki-kun</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="audio" data-source="beginning.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">B: The Beginning</div>
+                    </div>
+                </div>
+                <div data-name="Background Art">
+                    <div>
+                        <div class="clue" data-type="image" data-source="aot.png"></div>
+                        <div class="answer">Attack on Titan</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="sao.jpg"></div>
+                        <div class="answer">Sword Art Online</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="kimetsu.jpg"></div>
+                        <div class="answer">Kimetsu no Yaiba</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="monogatari.png"></div>
+                        <div class="answer">Monogatari Series</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="jibaku.jpg"></div>
+                        <div class="answer">Jibaku Shounen Hanako-kun</div>
+                    </div>
+                </div>
+                <div data-name="Spectacular Studios">
+                    <div>
+                        <div class="clue">K-ON!!</div>
+                        <div class="answer">Kyoto Animation</div>
+                    </div>
+                    <div>
+                        <div class="clue">Kaguya-sama: Love is War
+                        </div>
+                        <div class="answer">A-1 Pictures</div>
+                    </div>
+                    <div>
+                        <div class="clue">Haikyuu!!
+                        </div>
+                        <div class="answer">Production I.G</div>
+                    </div>
+                    <div>
+                        <div class="clue">My Hero Academia
+                        </div>
+                        <div class="answer">Bones</div>
+                    </div>
+                    <div>
+                        <div class="clue">No Guns Life
+                        </div>
+                        <div class="answer">Madhouse</div>
+                    </div>
+                </div>
+                <div data-name="Historical Figures">
+                    <div>
+                        <div class="clue" data-type="image" data-source="artoria.webp"></div>
+                        <div class="answer">Arthur Pendragon/King Arthur (Artoria Pendragon/Saber, Fate series)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="sengoku.webp"></div>
+                        <div class="answer">Date Masamune (Sengoku Basara)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="hakuoki.webp"></div>
+                        <div class="answer">Hijikata Toshizo (Hakuoki)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="bakumatsu.jpg"></div>
+                        <div class="answer">Ryoma Sakamoto (Bakumatsu Rock)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="nobunaga.jpg"></div>
+                        <div class="answer">Oda Nobunaga (Sengoku Collection)</div>
+                </div>
+                </div>
+                <div data-name="Pretty Obscure Anime">
+                    <div>
+                        <div class="clue" data-type="image" data-source="juuni.jpg"></div>
+                        <div class="answer">Juuni Taisen or Zodiac War or 12 Wars</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="xxxholic.jpeg"></div>
+                        <div class="answer">XXXHolic</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="nanbaka.jpg"></div>
+                        <div class="answer">Nanbaka or The Numbers</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="beebeebee.jpg"></div>
+                        <div class="answer">Black Blood Brothers or BBB</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="marchen.jpg"></div>
+                        <div class="answer">MAR or Marchen Awakens Romance</div>
+                    </div>
+                </div>
+                <div id="final-jeopardy" data-name="Fall 2019 Anime">
+                    <div>
+                        <div class="clue">What anime in the fall 2019 season had the longest japanese name? (Answer can be in english and shortened name also counts)
+</div>
+                        <div class="answer">Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen (Ascendance of a Bookworm)
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change the value of the data-source here to change the FINAL JEOPARDY MUSIC -->
+        <span id="final-jeopardy-music" data-type="audio" data-audio-type="audio/mp3" data-source="final.mp3"></span>
+
+        <div id="display-section">
+            <div id="debug" style="color: white; position: absolute;">
+                HELLO
+            </div>
+            <section id="intro">
+
+            </section>
+
+            <section id="main-page">
+                <div class="table clue-table non-selectable">
+                    <div class="row category-row"></div>
+                </div>
+            </section>
+            <div id="bottom-menu">
+                <div class="table team-table">
+                    <div class="row">
+                        <div class="cell button final-jeopardy-button non-selectable">
+                            Final
+                        </div>
+                        <div class="cell filler close-popup-button"></div>
+                        <div class="add-team-position"></div>
+                        <div class="cell filler close-popup-button"></div>
+                        <div class="cell button add-team-button non-selectable">
+                            +
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
