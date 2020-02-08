@@ -89,7 +89,6 @@ function renderPageWebtoon(page) {
     canvas.textBaseline = "top";
 
     var viewport = page.getViewport(1.0);
-    console.log(curWidth);
     var resolution = curWidth / viewport.width;
     var aspectRatio = viewport.height / viewport.width;
 
@@ -154,11 +153,8 @@ function renderPage(pdf, newPageNumber) {
 }
 
 function renderPdf(element, filename) {
-
     //remove all canvases
     //<canvas id="konshuu-reader-canvas"></canvas>
-
-    console.log("isWebtoon: " + isWebtoon);
     if (isWebtoon) {
         var canvases = document.getElementsByTagName('canvas');
         if (canvases) {
