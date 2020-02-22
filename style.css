@@ -113,6 +113,20 @@
       margin: 0px auto -3.5px;
   }
 
+  .sep-home {
+      position: relative;
+      top: 70px;
+      width: 40em;
+      margin: 0em auto 0.25em;
+      display: block;
+      border: none;
+      color: #183e78;
+      height: 2px;
+      /*background: white;*/
+      background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#fff), to(#000));
+      background: -moz-linear-gradient(right, #183e78, white, #183e78);
+  }
+
   .sep {
       position: relative;
       width: 40em;
