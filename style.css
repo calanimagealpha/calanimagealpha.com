@@ -162,13 +162,22 @@
   }
 
   .hero-image {
-      position: static;
+      /*position: static;
       width: auto;
       height: auto;
       min-width: 100%;
       min-height: 100%;
       z-index: -100;
-      overflow-x: hidden;
+      overflow-x: hidden;*/
+
+      background-image: url("assets/caa banner v 2.png");
+      background-color: #cccccc;
+      width: 100vw;
+      height: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
   }
 
   .info-boxes {
