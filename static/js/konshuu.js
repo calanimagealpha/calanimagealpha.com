@@ -37,21 +37,21 @@ var ctx = null;
 
 var isWebtoon = false;
 
-function rerender() {
-    var canvases = document.getElementsByTagName('canvas');
-    if (canvases) {
-        for (var i = canvases.length - 1; i >= 0; i--) {
-            canvases[i].remove();
-        }
-    }
-    //get rid of all canvases
-    if (isWebtoon) {
-        for(var num = 1; num <= konshuu_pdf.numPages; num++)
-            konshuu_pdf.getPage(num).then(renderPageWebtoon);
-    } else {
-        renderPage(konshuu_pdf, 1);
-    }
-}
+// function rerender() {
+//     var canvases = document.getElementsByTagName('canvas');
+//     if (canvases) {
+//         for (var i = canvases.length - 1; i >= 0; i--) {
+//             canvases[i].remove();
+//         }
+//     }
+//     //get rid of all canvases
+//     if (isWebtoon) {
+//         for(var num = 1; num <= konshuu_pdf.numPages; num++)
+//             konshuu_pdf.getPage(num).then(renderPageWebtoon);
+//     } else {
+//         renderPage(konshuu_pdf, 1);
+//     }
+// }
 
 //Calls this when webtoon button is pressed
 function webtoonLayout() {
@@ -64,7 +64,7 @@ function webtoonLayout() {
     isWebtoon = true;
     // python3 -m http.server
     //use incognito mode to not store file in cache
-    konshuu_canvas.remove();
+    // konshuu_canvas.remove();
 
     var canvases = document.getElementsByTagName('canvas');
     if (canvases) {
@@ -150,26 +150,35 @@ function renderPage(pdf, newPageNumber) {
     } else if (newPageNumber == konshuu_pdf.numPages) {
         konshuu_reader_right.style.display = "none";
     }
+
+ //    console.log("isWebtoon: " + isWebtoon);
+ //    if (isWebtoon) {
+	// 	webtoonLayout();
+	// }
 }
 
 function renderPdf(element, filename) {
     //remove all canvases
     //<canvas id="konshuu-reader-canvas"></canvas>
-    if (isWebtoon) {
-        var canvases = document.getElementsByTagName('canvas');
-        if (canvases) {
-            for (var i = canvases.length - 1; i >= 0; i--) {
-                canvases[i].remove();
-            }
-        }
-    } 
+    // if (isWebtoon) {
+    // 	console.log("renderpdf webtton:true");
+    //     var canvases = document.getElementsByTagName('canvas');
+    //     if (canvases) {
+    //         for (var i = canvases.length - 1; i >= 0; i--) {
+    //             canvases[i].remove();
+    //         }
+    //     }
+    // } 
 
     pdfjsLib.getDocument(filename).then(
         function(pdf) {
             konshuu_pdf = pdf;
             renderPage(konshuu_pdf, 1);
             pdf_filename = filename;
-            if (isWebtoon) webtoonLayout();
+            if (isWebtoon) {
+            	isWebtoon = false;
+            	webtoonLayout();
+            }
         }
     );
     if (element) {
@@ -242,7 +251,6 @@ function zoomoutWebtoon() {
     	}
     }
 }
-
 
 function showDropdownContent() {
     konshuu_dropdown_content.style.display = "block";
