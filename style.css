@@ -66,7 +66,7 @@
       position: absolute;
       font-size: 0.65em;
       padding: 0px;
-      width: 10em;
+      width: 10%;
       word-spacing: 2px;
       padding: 5px 0px 10px;
       background-color: inherit;
@@ -202,7 +202,7 @@
   }
 
   .info-box {
-      top: -600px;
+      top: -15em;
       font-size: 2em;
       padding: 0.5em;
       border: 0.1em solid #183e78;
