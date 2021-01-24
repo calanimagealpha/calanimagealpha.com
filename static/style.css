@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Cyntho Pro Regular";
-    src: url("../assets/CynthoPro-Regular.woff");
+    src: url("/assets/CynthoPro-Regular.woff");
 }
 
 body {
     font-family: "Cyntho Pro Regular";
     background-color: #191919;
     color: #1E1E1E;
-    margin: 0px;
+    margin: 0;
 }
 
 .sep {
@@ -24,16 +24,12 @@ body {
     width: 849px;
     margin: 0 auto;
     min-height: 600px;
-    background: url("../assets/banner.png") top center no-repeat;
+    background: url("/assets/banner.png") top center no-repeat;
     vertical-align: baseline;
 }
 
 #header {
     padding: 0;
-}
-#back {
-  position: absolute;
-  top: 0;
 }
 
 #footer {
@@ -50,7 +46,7 @@ body {
     margin: 0 auto;
     width: 843px;
     margin-top: 278px;
-    border-top: 10px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     border-left: 3px solid #000000;
     border-right: 4px solid #000000;
@@ -414,62 +410,6 @@ table.department {
 }
 
 /**** Konshuu ****/
-
-/**** Zoom Buttons ****/
-.zbutton {
-    display: inline-block;
-    *zoom: 1;
-    text-align: center;
-    font-family: inherit;
-    vertical-align: middle;
-    border: 1px solid;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.01);
-    color: #808080;
-    border-color: #808080;
-    font-size: 0.8em;
-    padding: 0.4em 1em;
-}
-
-.zbutton:hover {
-  background: #808080;
-  color: #fff;
-  border-color: #808080;
-}
-
-.zoomin {
-    margin-top:0%;
-    bottom: 10px;
-    position: fixed;
-    margin-left: 100px;
-}
-
-.zoomout {
-    margin-top:0%;
-    bottom: 10px;
-    position: fixed;
-    margin-left: 140px;
-}
-
-.webtoonLayout {
-	position: fixed;
-    margin-top:0%;
-    bottom: 10px;
-    margin-left: 180px;
-}
-
-
-/**** Webtoon Style ****/
-
-#konshuu-reader-webtoon {
-    width: 100%;
-    min-height: calc(100% - 64px);
-    padding-top: 64px;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-}
-
 
 /**** Calendar ****/
 #calendar {
