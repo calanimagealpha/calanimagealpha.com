@@ -17,15 +17,16 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106889406-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() { dataLayer.push(arguments) };
     gtag('js', new Date());
+
     gtag('config', 'UA-106889406-1');
     </script>
 </head>
 
 <body>
-
-    <div class="home-page">
+    <div class="home-page dim">
         <div class="top-bar">
             <div class="top-bar-item home-title"><a href="">Cal Animage Alpha</a></div>
             <div class="dummy-spacer" style="flex-grow: 1;"></div>
@@ -33,21 +34,22 @@
                 <li class="top-bar-item">
                     <a href="#about"><span>About</span></a>
                     <ul>
-                        <li><a href="officers/">Officers</a></li>
-                        <li><a href="contact/">Contact Us</a></li>
+                        <li><a href="/officers/">Officers</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
                     </ul>
-
                 </li>
                 <li class="top-bar-item">
                     <a href="#events"><span>Events</span></a>
                     <ul>
                         <li><a href="http://www.calanimedestiny.com" target="_blank">Anime Destiny</a></li>
+                        <li><a href="/schedule/">Showings Schedule</a></li>
+                        <li><a href="/calendar/">Club Calendar</a></li>
                     </ul>
                 </li>
                 <li class="top-bar-item">
-                    <a href="konshuu/" target="=_blank">Konshuu</a>
+                    <a href="#konshuu"><span>Konshuu</span></a>
                     <ul>
-                        <li><a href="#konshuu"><span>About</span></li>
+                        <li><a href="/konshuu/">Read Online</a></li>
                         <li><a href="http://j.mp/konsub" target="_blank">Contribute</a></li>
                     </ul>
                 </li>
@@ -78,50 +80,44 @@
             <div class="top-bar-item">
                 <a href="https://www.youtube.com/channel/UCqwtuMg539jVEtTYRrtD6kw" target="_blank">
                     <img src='assets/yt.png' alt="Youtube" style="width:33px;height:33px;border:0;">
-                  </a>
+                </a>
             </div>
         </div>
-
-        <!--<div class="hero-image">
-          <div class= "back">
-            <img src = "assets/caa banner v 2.png">
-              <!--  <source src="assets/2018.mp4">
-            </img>
-          </div>
-        </div>-->
-        <div style="text-align: center;">
-            <img src="assets/caa banner v 2.png" style="max-width: 100%; height: auto;" alt="FYI, image alt text is required" />
-        </div>
-
         <div class="home-center">
             <div class="home-caption">UC Berkeley's Anime Club</div>
         </div>
-        <div class="motd">
-	    <span class="sep-home"></span>
-            <h2></h2>
-            <p id="message"></p>
-        </div>
         <div class="info-boxes">
             <div class="info-box" id="first-box">
-              <h2>Game Night</h2>
-              <br> Thursdays, 8-9 PM
-              <br><a href="https://discord.com/invite/Xp4MUjG">CAA Discord</a>
-	    </div>
-            <!--<div class="info-box" >
-              <h2>CAA Discord</h2>
-              <br><a href="https://discord.com/invite/Xp4MUjG">CAA Discord</a>
-	      </div>-->
-            <div class="info-box" >
-              <h2>Showing</h2>
-              <br>Wednesdays, 7-8 PM
-               <br><a href="https://discord.com/invite/Xp4MUjG">CAA Discord</a>
+                <!--                     <div id="next">Next Up
+
+                      <img id="show" src='assets/showing.jpg' alt="Next Showing">
+
+                      <h1 id="series">
+                          TBD</h1>
+
+                    </div> -->
+            <h2>Showings</h2>
+            	TBA
+           	    <br> <!-- Time-->
+                <br><a href="https://discord.com/invite/Xp4MUjG">CAA Discord</a>
+            </div>
+            <div class="info-box">
+                <h2>Game Nights</h2>
+                 TBA
+                <br> <!-- Time-->
+                <br><a href="https://discord.com/invite/Xp4MUjG">CAA Discord</a>
             </div>
         </div>
         <div class="dummy-spacer"></div>
+        <div class="video-bg">
+            <video muted autoplay="autoplay" id="bgvid" loop="loop" poster="assets/railgun.jpg">
+                <source src="assets/2020.mp4">
+            </video>
+        </div>
     </div>
     <div class="below-the-fold">
         <div class="below-the-fold-item" id="about">
-            <img src="assets/annie chibi.png">
+            <img src="assets/annie-banner.png">
             <div class="about-text">
                 <p>
                     <h2>About CAA</h2> Cal Animage Alpha has been UC Berkeley's anime club since 1989. We hold a game night and a social every Thursday. We also have other events. All of these functions are open to the general public for free!
@@ -145,35 +141,37 @@
             <div class="about-text">
                 <h2>Events</h2>
                 <h3>Weeklies</h3>
-                <p class="sub">All workshops and game nights held by Cal Animage Alpha are open to the general public for free. Anyone interested in anime, manga, and Japanese anime culture is invited to attend these events.</p>
-                <p>We are hosting art/cosplay workshops weekly every Wednesday this semester. Moreover, we will as always have our biannual anime marathon before finals! Come if you want to destress, eat food, and win raffle prizes!</br> </p>
-                <p>  <a href="schedule">Calendar for Events in Spring 2020</a></p>
+                <p class="sub">All showings and game nights held by Cal Animage Alpha are open to the general public for free. Anyone interested in anime, manga, and Japanese anime culture is invited to attend these events.</p>
+                <p>We are holding showings biweekly every Wednesday this semester. Moreover, we will as always have our biannual anime marathon before finals! Come if you want to destress, eat food, and win raffle prizes!</br>
+                    <a href="/schedule">Tentative Showings Schedule for Fall 2018</a>
+                </p>
                 <p>Game Nights are held on Thursdays from 8:00 PM to 10:00 PM.</p>
-                <p>We're always open to fun event ideas or new games to play during game nights! Have an idea or a suggestion? Share it with an <a href="officers">officer</a>!</p>
+                <p>We're always open to fun event ideas or new games to play during game nights! Have an idea or a suggestion? Share it with an <a href="/officers">officer</a>!</p>
                 <h3>Specials</h3>
                 <p class="sub">Anime Destiny is our annual anime convention, held right here on campus! For more information, visit our <a href="http://www.calanimedestiny.com" target="_blank">website</a>.</p>
             </div>
             <!-- Facebook integration -->
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcalanimagealpha%2F&tabs=timeline&width=300&height=600&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="300" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcalanimagealpha%2F&tabs=timeline&width=300&height=600&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="300" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <img src="assets/cal-banner.png">
         </div>
         <div class="below-the-fold-item" id="konshuu">
-            <img src="assets/konshuu.jpg">
+            <img src="assets/annie-beach.png">
             <div class="about-text">
                 <p>
-                    <h2>Konshuu</h2> Konshuu is Cal Animage Alpha's weekly newsletter, featuring articles and fanworks from both guests and current officers. Each issue includes an overview of the series that will be shown/read during weekly meetings, information about future events, and an assortment of articles on anime culture. The latest issue is available for free at each weekly showing, or you can <a href="konshuu">read it online</a>!
+                    <h2>Konshuu</h2> Konshuu is Cal Animage Alpha's weekly newsletter, featuring articles and fanworks from both guests and current officers. Each issue includes an overview of the series that will be shown/read during weekly meetings, information about future events, and an assortment of articles on anime culture. The latest issue is available for free at each weekly showing, or you can <a href="/konshuu">read it online</a>!
                 </p>
                 <p>
                     Guest submissions are always welcome! To contribute, visit <a href="http://j.mp/konsub" target="_blank">j.mp/konsub</a>.</p>
-                <p>If you're interested in becoming a regular contributor to the newsletter, please contact the current head — Abeer Hossain — about working in the Konshuu department.</p>
+                <p>If you're interested in becoming a regular contributor to the newsletter, please contact the current head — Andrew Oeung — about working in the Konshuu department</p>
             </div>
         </div>
         <div class="below-the-fold-item" id="membership">
             <div class="about-text">
-                <h2>Join Us!</h2>
+                <h2>Join Us</h2>
                 <p>New Cal student? Interested in joining Cal Animage Alpha? Join our <a href="https://www.facebook.com/calanimagealpha" target="_blank">Facebook group</a>, like our page, and introduce yourself!</p>
-                Also, come to game nights and all our events to meet our officers.
+                Also, come to game nights and all our events to meet our officers!
             </div>
-            <img src="assets/cal chibi.png">
+            <img src="assets/cal-beach.png">
         </div>
     </div>
 </body>

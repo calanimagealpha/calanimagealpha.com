@@ -5,7 +5,7 @@
   }
    body {
       font-family: "Cyntho Pro Regular";
-      color: #183e78;
+      color: #fffcf7;
       cursor: default;
       -moz-user-select: none;
       -webkit-user-select: none;
@@ -16,29 +16,23 @@
 
   .home-center {
       display: flex;
-      position: relative;
-      top: -750px;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      max-height: 0px;
-
   }
 
 
   .top-bar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    z-index: 999;
-    background-color: #faedaa;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 999;
   }
 
   .top-bar > ul {
       display: inline-flex;
-      background-color: inherit;
   }
 
   .top-bar-item {
@@ -48,7 +42,6 @@
       word-spacing: -1px;
       display: inline;
       position: relative;
-      background-color: inherit;
   }
 
   .top-bar-item a {
@@ -57,7 +50,7 @@
 
   .top-bar-item a:link, .top-bar-item a:visited {
     text-decoration: none;
-    color: #183e78;
+    color: #fffcf7;
   }
 
   .top-bar-item ul {
@@ -66,10 +59,9 @@
       position: absolute;
       font-size: 0.65em;
       padding: 0px;
-      width: 10%;
+      width: 10em;
       word-spacing: 2px;
       padding: 5px 0px 10px;
-      background-color: inherit;
   }
 
   .top-bar-item ul li {
@@ -77,7 +69,7 @@
   }
 
   .top-bar-item a:hover {
-      color: goldenrod;
+      color: #738290;
   }
 
   .top-bar-item:hover > ul {
@@ -100,49 +92,28 @@
   }
 
   .motd {
-      position: relative;
-      top: -725px;
       text-align: center;
-      max-height: 0px;
   }
 
   .motd h2 {
-      position: relative;
       text-transform: uppercase;
       letter-spacing: -1px;
       margin: 0px auto -3.5px;
   }
 
-  .sep-home {
-      position: relative;
-      top: 70px;
-      width: 40em;
-      margin: 0em auto 0.25em;
-      display: block;
-      border: none;
-      color: #183e78;
-      height: 2px;
-      /*background: white;*/
-      background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#fff), to(#000));
-      background: -moz-linear-gradient(right, #183e78, white, #183e78);
-  }
-
   .sep {
-      position: relative;
       width: 40em;
       margin: 0em auto 0.25em;
       display: block;
       border: none;
-      color: #183e78;
+      color: black;
       height: 2px;
       /*background: white;*/
       background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#fff), to(#000));
-      background: -moz-linear-gradient(right, #183e78, white, #183e78);
+      background: -moz-linear-gradient(right, black, white, black);
   }
 
   #message {
-      position: relative;
-      top: -700px;
       width: 50em;
       margin: 1em auto 5em;
       font-size: 1.5em;
@@ -162,57 +133,54 @@
   }
 
   .home-page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 0px;
-    min-height: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height:100vh;
+      position: relative;
+      overflow: hidden;
   }
+
+
 
   .dim {
       background:rgba(0,0,0,0.5);
   }
 
-  .hero-image {
-      /*position: static;
+  video#bgvid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: auto;
       height: auto;
       min-width: 100%;
       min-height: 100%;
       z-index: -100;
-      overflow-x: hidden;*/
-
-      background-image: url("assets/caa banner v 2.png");
-      background-color: #cccccc;
-      width: 100vw;
-      height: auto;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
   }
-
+  .video-bg {
+      overflow: hidden;
+  }
   .info-boxes {
       display: flex;
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
-      max-height: 0px;
   }
 
   .info-box {
-      top: -15em;
       font-size: 2em;
       padding: 0.5em;
-      border: 0.1em solid #183e78;
+      border: 0.1em solid #fffcf7;
       text-align: center;
       min-width: 8em;
       margin: 0.5em 1.5em;
       border-radius: 0.2em;
       line-height: 115%;
       position: relative;
-
   }
 
   #first-box {
@@ -222,8 +190,6 @@
   .info-box h2 {
       margin: 0.25em;
       letter-spacing: 2px;
-      color: RoyalBlue;
-
   }
 
   #next {
@@ -249,7 +215,7 @@
       min-height: 300px;
       border: 5px solid white;
       border-radius: 2px;
-      background-color: #183e78;
+      background-color: black;
       left: 0em;
       bottom: 1em;
       z-index: 9000;
@@ -278,7 +244,7 @@
   #next:hover #series {
       display: flex;
       cursor: default;
-      color: #183e78;
+      color: black;
       /*text-transform: capitalize;*/
       /*-webkit-text-stroke: 0.001px white;*/
       text-shadow:
@@ -291,17 +257,16 @@
 
   .below-the-fold {
       color: #fffcf7;
-      background-color: RoyalBlue;
+      background-color: #738290;
       display: flex;
       flex-direction: column;
       align-items: stretch;
       justify-content: space-around;
-
   }
 
   .below-the-fold > div:nth-child(2n+1) {
-      background-color: LightGoldenRodYellow;
-      color: DodgerBlue;
+      background-color: #fffcf7;
+      color: #738290;
   }
 
 /*          #posts {
@@ -389,15 +354,6 @@
       line-height: 1.2em;
   }
 
-  .department {
-    position: justify;
-    margin: auto;
-    width: auto;
-    padding: 15%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
   .history {
       position: relative;
   }
@@ -467,15 +423,4 @@
 
   .spoilerbutton[value="Hide"] + .spoiler {
       padding: 5px;
-  }
-
-  .wrapper {
-    border-radius: 25px;
-    position: sticky;
-    margin:auto;
-    max-width: 900px;
-    width: 70%;
-    border: 3px solid #97e8e7;
-    background-color: #fff6c5;
-    padding-left: 10px;
   }
