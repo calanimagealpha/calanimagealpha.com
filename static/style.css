@@ -126,6 +126,16 @@ p {
     padding: 5px 20px;
 }
 
+/**** Background video for side pages ****/
+#myVideo {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 /**** Schedules  ****/
 table.schedule {
     margin: 1.5em auto 3em;
