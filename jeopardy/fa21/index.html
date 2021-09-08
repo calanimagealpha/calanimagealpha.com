@@ -1,0 +1,359 @@
+<!-- saved from url=(0014)about:internet -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <title>Anime Jeopardy! Fall 2019 Edition!</title>
+        <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="jeopardy.js"></script>
+        <link rel="stylesheet" type="text/css" href="jeopardy.css"  />
+
+        <script>
+            $(document).ready(function () {
+                Jeopardy($("#main-page .clue-table"));
+            });
+        </script>
+    </head>
+    <body>
+        <div id="data">
+            <div id="preset-teams">
+                <div>Team A</div>
+                <div>Team B</div>
+                <div>Team C</div>
+                <div>Team D</div>
+                <div data-color="#000000">Audience</div>
+            </div>
+            <div id="popups">
+                <div data-popup="jeopardy" class="jeopardy-popup clue-popup popup-box non-selectable">
+                    <h1></h1>
+                    <div class="table">
+                        <div class="row clue-row"><div class="cell container"></div></div>
+                        <div class="row controls-row">
+                            <div class="cell"><span class="round-timer-button circle-button" title="Start the round timer">&#9200;</span></div>
+                            <div class="cell"><span class="answer-timer-button circle-button" title="Start the answer timer">&#8987;</span></div>
+                            <div class="cell answer-timer-cell">
+                                <div class="answer-timer" data-interval-length="0.6" data-interval-count="10">&#x25ae;</div>
+                            </div>
+                            <div class="cell"><span class="answer-button circle-button" title="Show Answer">A</span></div>
+                        </div>
+                    </div>
+                    <div class="close-button circle-button">&times;</div>
+                    <div class="round-timer hide-toggle"><span class="timer-value">10</span></div>
+                </div>
+                <div data-popup="final-jeopardy" class="final-jeopardy-popup clue-popup popup-box non-selectable">
+                    <h1></h1>
+                    <div class="table">
+                        <div class="row clue-row"><div class="cell container"></div></div>
+                        <div class="row controls-row">
+                            <div class="cell music-container">
+                                <span class="play-button circle-button" title="Play/Pause">&#x25b6;</span>
+                            </div>
+                            <div class="cell filler"></div>
+                            <div class="cell"><span class="show-score-button circle-button">Final Scores</span></div>
+                            <div class="cell filler"></div>
+                            <div class="cell"><span class="answer-button circle-button" title="Show Answer">A</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-popup="add-team" class="add-team-popup popup-box">
+                    <div>
+                        <h1>Team Name</h1>
+                        <input />
+                        <button>Add Team</button>
+                    </div>
+                    <div class="arrow">&#9660;</div>
+                </div>
+                <div data-popup="team-editor" class="team-editor-popup popup-box color-target non-selectable" data-target-style="background-color">
+                    <h1>Editting Team</h1>
+                    <h2 class="header-team-name"></h2>
+                    <div><span class="label">Name</span><input class="team-name" /></div>
+                    <div><span class="label">Score</span><input class="team-score" /></div>
+                    <div style="display:  none"><span class="label">Color</span><input class="team-color" /></div>
+                    <button class="save-changes">Save Changes</button>
+                    <button class="delete-team">Delete</button>
+                </div>
+                <div data-popup ="final-jeopardy-wager" class="final-jeopardy-wager-popup wager-popup popup-box non-selectable">
+                    <h1>Final Jeopardy</h1>
+                    <h2 class="category-name">Category</h2>
+                    <h3>Make your wagers</h3>
+                    <div class="wager-list-container"><div class="wager-list table"></div>
+                    </div>
+                    <span class="reveal-clue circle-button">Reveal Clue</span>
+                </div>
+                <div data-popup ="daily-double" class="daily-double-popup wager-popup popup-box non-selectable">
+                    <h1>Daily Double</h1>
+                    <h2 class="category-name">Category</h2>
+                    <h3>Make your wager</h3>
+                    <div class="wager"><input /></div>
+                    <span class="reveal-clue circle-button">Reveal Clue</span>
+                </div>
+            </div>
+
+            <div id="templates">
+                <div data-template="overlay"></div>
+                <div data-template="clue-row" class="row"></div>
+                <div data-template="category-cell" class="cell category"><div class="container"></div></div>
+                <div data-template="clue-cell" class="cell clue"><div class="container"></div></div>
+                <div data-template="empty-cell" class="cell empty"></div>
+                <div data-template="team-cell" class="cell team button non-selectable team-background">
+                    <div class="buttons">
+                        <div class="circle-button correct-button">&#x2713;</div>
+                        <div class="circle-button incorrect-button">&times;</div>
+                    </div>
+                    <div class="stats">
+                        <input type="text" class="team-name" />
+                        <input type="number" class="team-score" />
+                    </div>
+
+                </div>
+                <div data-template="wager-list-item" class="wager row">
+                    <span class="team-color-container cell"><span class="color-target" data-target-style="background-color"></span></span>
+                    <span class="team-name-container cell"><span class="team-name">Name</span></span>
+                    <span class="team-wager-container cell">
+                        <input />
+                        <span class="valid-input" data-valid="0x2714" data-invalid="0x2718">&#x2718;</span>
+                    </span>
+                </div>
+                <div data-template="clue-node" class='table'>
+                    <div class='row'>
+                        <div class='cell container-node-target'></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="team-colors" data-min-opacity="0.3" data-max-opacity="0.8">
+                <span id="base-color" data-color="#808080"></span>
+                <span data-color="#800000"></span>
+                <span data-color="#008000"></span>
+                <span data-color="#000080"></span>
+                <span data-color="#400080"></span>
+              a  <span data-color="#D06000"></span>
+                <span data-color="#000080"></span>
+            </div>
+            <div id="categories" data-multiplier="100" data-daily-doubles="2">
+
+                <!-- Example clues. If you copy this, make sure to delete the following part:
+
+                     class="example"
+
+                -->
+                <div class="example" data-name="Example Clues" data-multiplier="400">
+                    <div>
+                        <div class="clue" data-type="text">Other than his lack of hair, he's pretty average-looking. But despite his skinny build, the hero can defeat enemies in one punch in this webcomic-turned-manga.</div>
+                        <div class="answer">One-Punch Man</div>
+                    </div>
+
+                    <!-- data-value overrides the calculated value of the clue -->
+                    <div data-value="400">
+                        <!-- use data-type="image" and data-source to use an image in the same folder -->
+                        <div class="clue" data-type="image" data-source="beauty2.png"></div>
+                        <div class="answer">Evangeline A. K. McDowell<br/>(Negima!)</div>
+                    </div>
+                    <div>
+                        <!-- use data-type="audio" to use an audio file in the same folder. -->
+                        <div class="clue" data-type="audio" data-source="test.mp3" data-audio-type="audio/mp3"></div>
+                        <div class="answer">ololol</div>
+                    </div>
+                </div>
+                <!-- Edit actual Jeopardy questions below -->
+                <div data-name="2000s Anime">
+                    <div>
+                        <div class="clue">Soul, Maka, Death the Kid and Black Star all come from what 2008 anime?</div>
+                        <div class="answer">Soul Eater</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="geass.png"></div>
+                        <div class="answer">Code Geass</div>
+                    </div>
+                    <div>
+                        <div class="clue">What 2009 visual novel, adapted into a legendary anime, centers around death, tragedy and a time travelling mad scientist?</div>
+                        <div class="answer">Steins;Gate</div>
+                    </div>
+                    <div>
+                        <div class="clue">In the whimsical world of Spirited Away, Chihiro is told to cross a bridge into the bath house. What can she absolutely NOT do while crossing said bridge?</div>
+                        <div class="answer">Breath</div>
+                    </div>
+                    <div>
+                        <div class="clue">In the anime Katekyo Hitman Reborn!, what is the name of the main character's family?</div>
+                        <div class="answer">The Vongola Family</div>
+                    </div>
+                </div>
+                <div data-name="Movie Backgrounds">
+                    <div>
+                        <div class="clue" data-type="image" data-source="spirited_away.png"></div>
+                        <div class="answer">Spirited Away</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="demon_slayer.png"></div>
+                        <div class="answer">Demon Slayer: Mugen Train</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="gits.jpg"></div>
+                        <div class="answer">Ghost in the Shell</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="koe_no_katachi.jpg"></div>
+                        <div class="answer">Koe no Katachi</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="kimi_no_nawa.jpg"></div>
+                        <div class="answer">Kimi no Na wa</div>
+                    </div>
+                </div>
+                <div data-name="Black Haired Anime Boys">
+                    <div>
+                        <div class="clue" data-type="image" data-source="giyu.jpg"></div>
+                        <div class="answer">Tomioka Giyuu (Demon Slayer)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="kageyama.png"></div>
+                        <div class="answer">Kageyama Tobio (Haikyu!!)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="yato.jpg"></div>
+                        <div class="answer">Yato (Noragami)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="daisuke.jpg"></div>
+                        <div class="answer">Daisuke Kambe (The Millionaire Detective - Balance: Unlimited)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="kakeru.jpg"></div>
+                        <div class="answer">Kakeru Kurahara (Run with the Wind)</div>
+                    </div>
+                </div>
+                <!-- <div data-name="Blue Eyed Anime Boys 2">
+                    <div>
+                        <div class="clue" data-type="image" data-source="rin.png"></div>
+                        <div class="answer">Rin Okumura (Blue Exorcist)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="haru.jpg"></div>
+                        <div class="answer">Haruka Nanase (Free!)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="phil.png"></div>
+                        <div class="answer">Phil (Promised Neverland)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="hokuto.jpg"></div>
+                        <div class="answer">Hokuto Hidaka (Ensemble Stars!)</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="maki.png"></div>
+                        <div class="answer">Katsuragi Maki (Stars Align)</div>
+                    </div>
+                </div> -->
+                <div data-name="TV Tropes">
+                    <div>
+                        <div class="clue">A small but focused police effort is launched to stop a straight-A student from writing in his diary. Eventually the entire world suffers for it.</div>
+                        <div class="answer">Death Note</div>
+                    </div>
+                    <div>
+                        <div class="clue">Detective solves murders after barely escaping his own with a Fountain of Youth.</div>
+                        <div class="answer">Detective Conan</div>
+                    </div>
+                    <div>
+                        <div class="clue">A teenage boy is forced to share bodies with an evil spirit after eating some finger food.</div>
+                        <div class="answer">Jujutsu Kaisen</div>
+                    </div>
+                    <div>
+                        <div class="clue">The adventures of two girls with one facial expression and 48 voice actors between them.</div>
+                        <div class="answer">Pop Team Epic</div>
+                    </div>
+                    <div>
+                        <div class="clue">A cheerful, 15-year-old boy tries to figure out how he became the main character in Alice in Wonderland.</div>
+                        <div class="answer">Pandora Hearts</div>
+                    </div>
+                </div>
+                <div data-name="Jojo's Bizzare Trivia">
+                    <div>
+                        <div class="clue">The title of the part whose anime adaptation releases this December</div>
+                        <div class="answer">Stone Ocean</div>
+                    </div>
+                    <div>
+                        <div class="clue">The special ability used by the protagonists of the first two parts</div>
+                        <div class="answer">Hamon/Ripple</div>
+                    </div>
+                    <div>
+                        <div class="clue">The number of parts Jotaro Kujo appears in</div>
+                        <div class="answer">4</div>
+                    </div>
+                    <div>
+                        <div class="clue">The first character to appear in the first opening (Sono Chi no Sadame). Think carefully!</div>
+                        <div class="answer">Jolyne Cujoh</div>
+                    </div>
+                    <div>
+                        <div class="clue">The name of the person who finished first in the first leg of the Steel Ball Run race</div>
+                        <div class="answer">Sandman</div>
+                    </div>
+                </div>
+                <div data-name="Video Games">
+                    <div>
+                        <div class="clue" data-type="image" data-source="genshin impact.jpeg"></div>
+                        <div class="answer">Genshin Impact</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="shin.jpg"></div>
+                        <div class="answer">Shin Megami Tensei V</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="ffxv.jpeg"></div>
+                        <div class="answer">Final Fantasy XV</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="omori.webp"></div>
+                        <div class="answer">OMORI</div>
+                    </div>
+                    <div>
+                        <div class="clue" data-type="image" data-source="worlds end club.jpg"></div>
+                        <div class="answer">World's End Club (Death March Club)</div>
+                    </div>
+                </div>
+                <div id="final-jeopardy" data-name="Vocaloid Producers and Anime Openings">
+                    <div>
+                        <div class="clue">What former vocaloid producer wrote the Kill la Kill opening "ambiguous"?</div>
+                        <div class="answer">Toku-P/beatica/Abe Yoshinori/Yoshinori Abe
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change the value of the data-source here to change the FINAL JEOPARDY MUSIC -->
+        <span id="final-jeopardy-music" data-type="audio" data-audio-type="audio/mp3" data-source="final.mp3"></span>
+
+        <div id="display-section">
+            <div id="debug" style="color: white; position: absolute;">
+                HELLO
+            </div>
+            <section id="intro">
+
+            </section>
+
+            <section id="main-page">
+                <div class="table clue-table non-selectable">
+                    <div class="row category-row"></div>
+                </div>
+            </section>
+            <div id="bottom-menu">
+                <div class="table team-table">
+                    <div class="row">
+                        <div class="cell button final-jeopardy-button non-selectable">
+                            Final
+                        </div>
+                        <div class="cell filler close-popup-button"></div>
+                        <div class="add-team-position"></div>
+                        <div class="cell filler close-popup-button"></div>
+                        <div class="cell button add-team-button non-selectable">
+                            +
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
